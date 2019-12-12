@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyName>cew</AssemblyName>
+    <RootNamespace>332</RootNamespace>
+  </PropertyGroup>
+
+</Project>

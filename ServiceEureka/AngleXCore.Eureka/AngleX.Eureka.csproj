@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>1.1.6</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="XEureka.ini" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AngleX" Version="1.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="config\XEurekaApp.ini">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="config\XEurekaServer.ini">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

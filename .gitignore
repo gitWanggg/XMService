@@ -1,0 +1,23 @@
+.DS_Store
+.vs
+
+.vscode
+
+**/bin/
+**/obj/
+
+**/*.log
+
+
+selenium-debug.log
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+
+
+*.local
+
+package-lock.json
+yarn.lock
