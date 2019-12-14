@@ -1,0 +1,45 @@
+﻿[
+    {
+        "Name": "严格定时器1",
+        "Strict": 1,
+        "IntervalSeconds": 60,
+        "Handlers": [ 
+                {
+                    "Name": "测试01", ///名称必须唯一
+                    "IntervalMulriple": 1, ///间隔分钟，最小1
+                    "ServiceAPI": "", ///服务器地址
+                    "PostParams": "", /////投递参数
+                    "Effectivity": 1, /////启用                  
+                },
+                {
+                "Name": "测试02", ///名称
+                "IntervalMulriple": 1, ///间隔分钟，最小1
+                "ServiceAPI": "", ///服务器地址
+                "PostParams": "", /////投递参数
+                "Effectivity": 1, /////启用                
+            }
+        ]
+    },
+    {
+        "Name": "非严格定时器1",
+        "Strict": 0,
+        "IntervalSeconds": 30,
+        "Handlers": [ 
+                {
+                    "Name": "测试11", ///名称必须唯一
+                    "IntervalMulriple": 1, ///间隔分钟，最小1
+                    "ServiceAPI": "", ///服务器地址
+                    "PostParams": "", /////投递参数
+                    "Effectivity": 1, /////启用                  
+                },
+                {
+                "Name": "测试22", ///名称
+                "IntervalMulriple": 1, ///间隔分钟，最小1
+                "ServiceAPI": "", ///服务器地址
+                "PostParams": "", /////投递参数
+                "Effectivity": 1, /////启用                
+            }
+        ]
+    },
+    
+]
