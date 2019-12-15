@@ -37,7 +37,10 @@ namespace IMCore001.src
             this.websocket = webSocket;
             var buffer = new byte[1024 * 4];
             WebSocketReceiveResult result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
+            Thread th = new Thread(HandlerSend);
+            th.Start();
             while (!result.CloseStatus.HasValue) {
+                dtLastPackage = DateTime.Now;
                 await webSocket.SendAsync(new ArraySegment<byte>(buffer, 0, result.Count), result.MessageType, result.EndOfMessage, CancellationToken.None);
 
                 result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
@@ -47,9 +50,14 @@ namespace IMCore001.src
         /// <summary>
         /// 主动发送
         /// </summary>
-        protected void HandlerSend()
+        protected  void HandlerSend()
         {
 
+            for (int i = 0; i < 120; i++) {
+                byte[] aa = System.Text.Encoding.UTF8.GetBytes(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                websocket.SendAsync(aa, WebSocketMessageType.Text, true, CancellationToken.None);
+                System.Threading.Thread.Sleep(1000);
+            }
         }
         /// <summary>
         /// 处理命令
@@ -64,8 +72,10 @@ namespace IMCore001.src
                 timer.Stop();
                 timer.Dispose();
             }
-            if (websocket != null)
+            if (websocket != null) {
+                websocket.CloseAsync(WebSocketCloseStatus.Empty,"dispose",CancellationToken.None);
                 websocket.Dispose();
+            }
         }
     }
 }

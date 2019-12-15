@@ -39,7 +39,7 @@ namespace IMCore001
             if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseStaticFiles();
+            //app.UseStaticFiles();
             
             var webSocketOptions = new WebSocketOptions()
             {
