@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AngleX.MQ
 {
-    class ServiceVMConfig
+    public class ServiceVMConfig
     {
         /// <summary>
         ///  访问消息队列的用户名

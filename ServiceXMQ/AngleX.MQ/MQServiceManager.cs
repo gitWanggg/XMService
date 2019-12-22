@@ -7,17 +7,21 @@ namespace AngleX.MQ
 {
     public class MQServiceManager
     {
+
         static readonly int Timer_tick = 10000;
         Dictionary<string, IService> dicServices;
+        Dictionary<string, ConTry> dicTry;
         private Timer timer = null;
         public MQServiceManager()
         {
             dicServices = new Dictionary<string, IService>();
+            dicTry = new Dictionary<string, ConTry>();
         }
         public IService this[string Key] { get { return dicServices[Key]; } }
         public void AddService(string Key,IService ISer)
         {
             dicServices[Key] = ISer;
+            dicTry[Key] = new ConTry();
             ISer.ConnectionShutdown += ISer_ConnectionShutdown;
         }
         bool IsClose;
@@ -29,19 +33,34 @@ namespace AngleX.MQ
             }
         }
         void PolicyTryConnect(IService ISvr)
-        {      
-            
-            int nSleep = 0;
-            bool isError = false;
-            do {
-                nSleep += 3;
-                isError = TryIsError(ISvr);
-                if (isError) {
-                    nSleep %= 40;
-                    System.Threading.Thread.Sleep(nSleep * 1000);
+        {
+            if (ISvr.IsRuning)
+                return;
+            ConTry cT = dicTry[ISvr.Name];
+            if (cT.IsTry)
+                return;
+            lock (cT) {
+                if (ISvr.IsRuning||cT.IsTry)
+                    return;
+                cT.IsTry = true;
+                cT.Count += 1;
+                int nSleep = 0;
+                bool isError = false;
+                do {
+                    cT.TotalCount += 1;
+                    nSleep += 3;
+                    isError = TryIsError(ISvr);
+                    if (isError) {
+                        nSleep %= 40;
+                        System.Threading.Thread.Sleep(nSleep * 1000);
+                    }
                 }
+                while (isError);
+                cT.IsTry = false;
             }
-            while (isError);
+
+
+            
         }
         bool TryIsError(IService Isvr)
         {
@@ -73,19 +92,28 @@ namespace AngleX.MQ
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             timer.Stop();
-
+            foreach(string key in dicServices.Keys) {
+                IService Iser = dicServices[key];
+                if (Iser.IsRuning || dicTry[Iser.Name].IsTry)
+                    continue;
+                System.Threading.ThreadPool.QueueUserWorkItem(TryConnectObj, Iser);
+            }
             timer.Start();
         }
-
+        void TryConnectObj(object ObjISer)
+        {
+            IService Iser = ObjISer as IService;
+            PolicyTryConnect(Iser);
+        }
         public void Stop()
         {
-            IsClose = true;
-            foreach (string key in dicServices.Keys) {
-                dicServices[key].Stop();
-            }
+            IsClose = true;            
             if (timer != null) {
                 timer.Stop();
                 timer.Dispose();
+            }
+            foreach (string key in dicServices.Keys) {
+                dicServices[key].Stop();
             }
         }
     }

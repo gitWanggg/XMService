@@ -4,15 +4,16 @@ using System.Text;
 
 namespace AngleX.MQ
 {
-    public class AppQueueConfig
+    class ConTry
     {
+        public bool IsTry { get; set; }
         /// <summary>
-        /// 生产者
+        /// 合计重试次数
         /// </summary>
-        public List<MQExchage> Producers { get; set; }
+        public int  TotalCount { get; set; }
         /// <summary>
-        /// 消费者
+        /// 重试序号
         /// </summary>
-        public List<MQQueue> Consumers { get; set; }
+        public int Count { get; set; }
     }
 }

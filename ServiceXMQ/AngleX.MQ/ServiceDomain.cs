@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AngleX.MQ
 {
-    class ServiceDomain
+   public class ServiceDomain
     {
         public string Name { get; set; }
         /// <summary>
