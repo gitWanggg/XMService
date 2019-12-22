@@ -23,7 +23,7 @@ namespace AngleX.MQ.Core
         /// <summary>
         ///  外部订阅消费者通知委托
         /// </summary>
-        public Action<BasicDeliverEventArgs> OnReceivedCallback { get; set; }
+        public IMQHandler OnReceivedCallback { get; set; }
 
         public MQChannel(string exchangeType, string exchange, string queue, string routekey)
         {
@@ -42,13 +42,22 @@ namespace AngleX.MQ.Core
         public void Publish(string content,string route)
         {
             byte[] body = System.Text.Encoding.UTF8.GetBytes(content); // MQConnection.UTF8.GetBytes(content);           
-            Consumer.Model.BasicPublish(this.ExchangeName, route, false, prop, body);
+            if (Channel.IsOpen)
+                Channel.BasicPublish(this.ExchangeName, route, false, prop, body);
+            else
+                Console.WriteLine("close");
         }
 
         internal void Receive(object sender, BasicDeliverEventArgs e)
         {
-           
-            OnReceivedCallback?.Invoke(e);
+
+            try {
+                OnReceivedCallback?.Hand(e);
+            }
+            catch {
+
+            }
+            Channel?.BasicAck(deliveryTag: e.DeliveryTag, multiple: false);
         }
 
         /// <summary>

@@ -1,0 +1,29 @@
+[
+  {
+    "Name": "service1", //服务域名称
+    "QueueConfig": { //队列配置
+      "Producers": [
+        {
+          "Key": "SvrGateway",
+          "ExchangeName": "AngleX"
+        }        
+      ], //生产队列
+      "Consumers": [
+        {
+          "Key": "Instance.1",
+          "ExchangeName": "AngleX",
+          "Queue": "Anglex.10005.BIZ.Instance.0001",
+          "RouteKey": "Anglex.10005.BIZ.Instance.0001",
+          "HandlerType": "MQDotCoreTest.MQHandler.SvrCommandHandler,MQDotCoreTest"
+        }   
+      ] //消费队列
+    },
+    "VMConfig": { //rabbitmq服务器配置
+      "UserName": "mqapi",
+      "Password": "123456",
+      "HostName": "localhost",
+      "Port": 5672,
+      "VMHost": "localhost"
+    }
+  }  
+]

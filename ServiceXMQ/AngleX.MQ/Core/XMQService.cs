@@ -43,6 +43,8 @@ namespace AngleX.MQ.Core
                }
         }
 
+        public MQChannel this[string Key] => Find(Key);
+
         public MQChannel Find(string Key)
         {
             return dicChannel[Key];
@@ -55,16 +57,17 @@ namespace AngleX.MQ.Core
             IConFactory = MQConnectFactory.Create(this.ServiceConfig.VMConfig); //创建连接工程
             dicChannel = new Dictionary<string, MQChannel>();
             listChannel = new List<MQChannel>();
-            init();
+            //init();
+            initConnect();
+            initChannel();
             IsStart = true;
         }
-        void init()
+       
+        void initConnect()
         {
             Connection = IConFactory.CreateConnection();
             Connection.ConnectionShutdown += Connection_ConnectionShutdown;
-            initChannel();
         }
-
         private void Connection_ConnectionShutdown(object sender, ShutdownEventArgs e)
         {
             if (IsStart && ConnectionShutdown != null)
@@ -76,17 +79,20 @@ namespace AngleX.MQ.Core
             MQChannelManager chManager = new MQChannelManager(this.Connection);
             if (this.ServiceConfig.QueueConfig.Consumers != null && this.ServiceConfig.QueueConfig.Consumers.Count > 0) {
                 foreach(MQQueue item in this.ServiceConfig.QueueConfig.Consumers) {
-                    MQChannel mCh = chManager.CreateReceiveChannel(ExchangeType.Topic, item.ExchageName, item.Queue, item.RouteKey);
+                    MQChannel mCh = chManager.CreateReceiveChannel(ExchangeType.Topic, item.ExchangeName, item.Queue, item.RouteKey);
                     dicChannel[item.Key] = mCh;
+                    mCh.OnReceivedCallback = MQHandlerFactory.Create(item.HandlerType); //设置处理类
                 }
             }
             if (this.ServiceConfig.QueueConfig.Producers != null && this.ServiceConfig.QueueConfig.Producers.Count > 0) {
-                foreach (MQQueue item in this.ServiceConfig.QueueConfig.Producers) {
-                    MQChannel mCh = chManager.CreatePublishChannel(item.ExchageName);
+                foreach (MQExchage item in this.ServiceConfig.QueueConfig.Producers) {
+                    MQChannel mCh = chManager.CreatePublishChannel(item.ExchangeName);
                     dicChannel[item.Key] = mCh;
+                    //mCh.OnReceivedCallback = MQHandlerFactory.Create(item.HandlerType); //设置处理类
                 }
             }
         }
+       
         public void Stop()
         {
             IsStart = false;
@@ -113,16 +119,17 @@ namespace AngleX.MQ.Core
             if (IsStart) {
                 if (Connection != null)
                     Connection.Dispose();
-                if (dicChannel != null)
-                    dicChannel.Clear();
-                if (listChannel != null)
-                    listChannel.Clear();
-                init();               
+                initConnect();
+                initChannel();                      
             }
             else
                 Start();
         }
 
-        
+        public void CloseAllChannels()
+        {
+            foreach (string key in dicChannel.Keys)
+                dicChannel[key].Channel.Dispose();
+        }
     }
 }

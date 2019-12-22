@@ -15,6 +15,6 @@ namespace AngleX.MQ
         /// <summary>
         /// 交换机
         /// </summary>
-        public string ExchageName { get; set; }
+        public string ExchangeName { get; set; }
     }
 }

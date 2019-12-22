@@ -46,6 +46,7 @@ namespace AngleX.MQ
                 cT.Count += 1;
                 int nSleep = 0;
                 bool isError = false;
+                ISvr.CloseAllChannels();
                 do {
                     cT.TotalCount += 1;
                     nSleep += 3;
@@ -79,13 +80,14 @@ namespace AngleX.MQ
 
         public void Start()
         {
-            timer = new Timer();
-            timer.Interval = Timer_tick;
-            timer.Elapsed += Timer_Elapsed;
+            
             foreach (string key in dicServices.Keys) {
                
                 dicServices[key].Start();
             }
+            timer = new Timer();
+            timer.Interval = Timer_tick;
+            timer.Elapsed += Timer_Elapsed;
             timer.Start();
         }
 

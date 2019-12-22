@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AngleX.MQ", "AngleX.MQ\Angl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MQDotCoreTest", "MQDotCoreTest\MQDotCoreTest.csproj", "{ABBB03E0-484F-47E5-99D0-BADB6FF07951}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MQDotNetTest", "MQDotNetTest\MQDotNetTest.csproj", "{3B893C82-FA4D-44E5-B850-7AE674C961A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{ABBB03E0-484F-47E5-99D0-BADB6FF07951}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABBB03E0-484F-47E5-99D0-BADB6FF07951}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABBB03E0-484F-47E5-99D0-BADB6FF07951}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B893C82-FA4D-44E5-B850-7AE674C961A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B893C82-FA4D-44E5-B850-7AE674C961A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B893C82-FA4D-44E5-B850-7AE674C961A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B893C82-FA4D-44E5-B850-7AE674C961A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

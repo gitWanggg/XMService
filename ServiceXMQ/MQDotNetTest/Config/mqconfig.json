@@ -1,0 +1,23 @@
+[
+  {
+    "Name": "service1", //服务域名称
+    "QueueConfig": { //队列配置
+      "Producers": [ //生产队列
+        {
+          "Key": "SvrGateway",
+          "ExchangeName": "AngleX"
+        }
+      ],
+      "Consumers": [ //消费队列
+        
+      ] 
+    },
+    "VMConfig": { //rabbitmq服务器配置
+      "UserName": "mqapi",
+      "Password": "123456",
+      "HostName": "localhost",
+      "Port": 5672,
+      "VMHost": "localhost"
+    }
+  }  
+]

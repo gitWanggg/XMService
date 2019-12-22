@@ -26,6 +26,8 @@ namespace AngleX.MQ
         /// </summary>
         void Stop();
 
+        void CloseAllChannels();
+
         event EventHandler<ShutdownEventArgs> ConnectionShutdown;
 
         /// <summary>
@@ -40,6 +42,7 @@ namespace AngleX.MQ
         /// <returns></returns>
         MQChannel Find(string Key);
 
+        MQChannel this[string Key] { get; }
         /// <summary>
         ///  消息队列中定义的虚拟机
         /// </summary>
