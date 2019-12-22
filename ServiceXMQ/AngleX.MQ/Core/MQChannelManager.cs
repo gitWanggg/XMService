@@ -25,7 +25,7 @@ namespace AngleX.MQ.Core
         public MQChannel CreateReceiveChannel(string exchangeType, string exchange, string queue, string routekey)
         {
             IModel model = this.CreateModel(exchangeType, exchange, queue, routekey);
-            model.BasicQos(0, 1, false);
+            //model.BasicQos(0, 1, false);
             EventingBasicConsumer consumer = this.CreateConsumer(model, queue);
             MQChannel channel = new MQChannel(exchangeType, exchange, queue, routekey) {
                 Connection = this.MQConn,
@@ -61,6 +61,7 @@ namespace AngleX.MQ.Core
             IModel model = this.MQConn.CreateModel();
             model.BasicQos(0, 1, false);
             model.QueueDeclare(queue, true, false, false, arguments);
+            model.ExchangeDeclare(exchange, ExchangeType.Topic, false, false, null);
             model.QueueBind(queue, exchange, routeKey);
             return model;
         }
