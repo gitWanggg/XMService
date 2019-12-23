@@ -42,10 +42,10 @@ namespace AngleX.MQ.Core
         public void Publish(string content,string route)
         {
             byte[] body = System.Text.Encoding.UTF8.GetBytes(content); // MQConnection.UTF8.GetBytes(content);           
-            if (Channel.IsOpen)
+           // if (Channel.IsOpen)
                 Channel.BasicPublish(this.ExchangeName, route, false, prop, body);
-            else
-                Console.WriteLine("close");
+            //else
+            //    Console.WriteLine("close");
         }
 
         internal void Receive(object sender, BasicDeliverEventArgs e)

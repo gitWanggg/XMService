@@ -18,14 +18,18 @@ namespace MQDotNetTest
             mqM.Start();
 
             string service = "service1";
-            string routekey = "Anglex.10005.BIZ.Instance.0001";
+            string routekey1 = "Anglex.10005.BIZ.Instance.0001";
+            string routekey2 = "Anglex.10005.BIZ.Instance.0002";
+            string routekey3 = "Anglex.10005.BIZ.Instance.0003";
 
-            
 
-            for(int i = 0; i < 300; i++) {
+            for (int i = 0; i < 300; i++) {
                 var chanel = mqM[service]["SvrGateway"];
                 try {
-                    chanel.Publish(i.ToString(), routekey);
+                    
+                    chanel.Publish(i.ToString(), routekey1);
+                    chanel.Publish(i.ToString(), routekey2);
+                    chanel.Publish(i.ToString(), routekey3);
                     Console.WriteLine("send " + i.ToString());
                 }
                 catch (Exception ex) {

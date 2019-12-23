@@ -10,7 +10,7 @@ namespace MQDotCoreTest.MQHandler
     {
         public void Hand(BasicDeliverEventArgs DE)
         {
-            string txt = System.Text.Encoding.UTF8.GetString(DE.Body);
+            string txt =DE.RoutingKey+":" + System.Text.Encoding.UTF8.GetString(DE.Body);
             Console.WriteLine(txt);
         }
     }

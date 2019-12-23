@@ -2,21 +2,35 @@
   {
     "Name": "service1", //服务域名称
     "QueueConfig": { //队列配置
-      "Producers": [
+      "Producers": [ //生产队列
         {
           "Key": "SvrGateway",
           "ExchangeName": "AngleX"
-        }        
-      ], //生产队列
-      "Consumers": [
+        }
+      ],
+      "Consumers": [ //消费队列
         {
           "Key": "Instance.1",
           "ExchangeName": "AngleX",
           "Queue": "Anglex.10005.BIZ.Instance.0001",
           "RouteKey": "Anglex.10005.BIZ.Instance.0001",
           "HandlerType": "MQDotCoreTest.MQHandler.SvrCommandHandler,MQDotCoreTest"
-        }   
-      ] //消费队列
+        },
+        {
+          "Key": "Instance.2",
+          "ExchangeName": "AngleX",
+          "Queue": "Anglex.10005.BIZ.Instance.0002",
+          "RouteKey": "Anglex.10005.BIZ.Instance.0002",
+          "HandlerType": "MQDotCoreTest.MQHandler.SvrCommandHandler,MQDotCoreTest"
+        },
+        {
+          "Key": "Instance.3",
+          "ExchangeName": "AngleX",
+          "Queue": "Anglex.10005.BIZ.Instance.0003",
+          "RouteKey": "Anglex.10005.BIZ.Instance.0003",
+          "HandlerType": "MQDotCoreTest.MQHandler.SvrCommandHandler,MQDotCoreTest"
+        }
+      ] 
     },
     "VMConfig": { //rabbitmq服务器配置
       "UserName": "mqapi",
