@@ -92,12 +92,13 @@ namespace AspectBll
                 CategoryKey = "";
             if (BizBillID == null)
                 BizBillID = "";
+            Dictionary<string, object> dicPars = new Dictionary<string, object>();
+            dicPars.Add(SqlTemplate.RTCateKey, CategoryKey);
+            dicPars.Add(SqlTemplate.RTBizID, BizBillID);
+            dicPars.Add(SqlTemplate.RTTextContent, txt);
+            string sqlInsert = string.Format(SqlTemplate.InsertLog, TableName, MonthCode());
             using (var con = SqlHelper.GetConnection(ConfigSetting.ConnectString)) {
-                Dictionary<string, object> dicPars = new Dictionary<string, object>();
-                dicPars.Add(SqlTemplate.RTCateKey, CategoryKey);
-                dicPars.Add(SqlTemplate.RTBizID, BizBillID);
-                dicPars.Add(SqlTemplate.RTTextContent, txt);
-                string sqlInsert = string.Format(SqlTemplate.InsertLog, TableName, MonthCode());
+               
                 System.Data.DataTable dtIDs = SqlHelper.ExecuteDataset(con, sqlInsert, dicPars);
                 return dtIDs.Rows[0][0].ToString();
             }
@@ -118,13 +119,14 @@ namespace AspectBll
                 ExMsg = "";
             if (ExStack == null)
                 ExStack = "";
+            Dictionary<string, object> dicPars = new Dictionary<string, object>();
+            dicPars.Add(SqlTemplate.RTCateKey, CategoryKey);
+            dicPars.Add(SqlTemplate.RTBizID, BizBillID);
+            dicPars.Add(SqlTemplate.RTMsg, ExMsg);
+            dicPars.Add(SqlTemplate.RTStack, ExStack);
+            string sqlInsert = string.Format(SqlTemplate.InsertError, TableName, MonthCode());
             using (var con = SqlHelper.GetConnection(ConfigSetting.ConnectString)) {
-                Dictionary<string, object> dicPars = new Dictionary<string, object>();
-                dicPars.Add(SqlTemplate.RTCateKey, CategoryKey);
-                dicPars.Add(SqlTemplate.RTBizID, BizBillID);
-                dicPars.Add(SqlTemplate.RTMsg, ExMsg);
-                dicPars.Add(SqlTemplate.RTStack, ExStack);
-                string sqlInsert = string.Format(SqlTemplate.InsertError, TableName, MonthCode());
+              
                 System.Data.DataTable dtIDs = SqlHelper.ExecuteDataset(con, sqlInsert, dicPars);
                 return dtIDs.Rows[0][0].ToString();
             }
@@ -134,11 +136,12 @@ namespace AspectBll
         {
             if (!IsInitMQ)
                 InitMQ();
+            Dictionary<string, object> dicPars = new Dictionary<string, object>();
+            dicPars.Add(SqlTemplate.RTSeek, SeekTime);
+            dicPars.Add(SqlTemplate.RTBizID, BizBillID);
+            string sqlInsert = string.Format(SqlTemplate.InsertMQ, TableName, ModeNum, MType);
             using (var con = SqlHelper.GetConnection(ConfigSetting.ConnectString)) {
-                Dictionary<string, object> dicPars = new Dictionary<string, object>();
-                dicPars.Add(SqlTemplate.RTSeek, SeekTime);
-                dicPars.Add(SqlTemplate.RTBizID, BizBillID);               
-                string sqlInsert = string.Format(SqlTemplate.InsertMQ, TableName, ModeNum,MType);
+               
                 System.Data.DataTable dtIDs = SqlHelper.ExecuteDataset(con, sqlInsert, dicPars);
                 return dtIDs.Rows[0][0].ToString();
             }
@@ -152,12 +155,12 @@ namespace AspectBll
                 Top = 200;
             List<XMQ> listM = new List<XMQ>();
             System.Data.DataTable dtRows = null;
-            using (var con = SqlHelper.GetConnection(ConfigSetting.ConnectString)) {
-                string sqlSelect = string.Format(SqlTemplate.SelectMQ, TableName,Top);
-                if (MType != null)
-                    sqlSelect += string.Format(SqlTemplate.WhereMType, MType.Value);
-                if (ModeNum != null)
-                    sqlSelect += string.Format(SqlTemplate.WhereModel, ModeNum.Value);
+            string sqlSelect = string.Format(SqlTemplate.SelectMQ, TableName, Top);
+            if (MType != null)
+                sqlSelect += string.Format(SqlTemplate.WhereMType, MType.Value);
+            if (ModeNum != null)
+                sqlSelect += string.Format(SqlTemplate.WhereModel, ModeNum.Value);
+            using (var con = SqlHelper.GetConnection(ConfigSetting.ConnectString)) {               
                 dtRows = SqlHelper.ExecuteDataset(con, sqlSelect);
             }
             if (dtRows != null && dtRows.Rows.Count > 0) {
@@ -175,8 +178,8 @@ namespace AspectBll
 
         public void Delete(int ID)
         {
-            using (var con = SqlHelper.GetConnection(ConfigSetting.ConnectString)) {               
-                string sqlDel = string.Format(SqlTemplate.RemoveMQ, TableName, ID);
+            string sqlDel = string.Format(SqlTemplate.RemoveMQ, TableName, ID);
+            using (var con = SqlHelper.GetConnection(ConfigSetting.ConnectString)) {                               
                 SqlHelper.ExecuteNonQuery(con, sqlDel);
             }
         }
