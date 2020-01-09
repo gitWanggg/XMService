@@ -28,5 +28,23 @@ namespace ServiceUserApp.Controllers
             ViewBag.json = Newtonsoft.Json.JsonConvert.SerializeObject(tm);
             return View();
         }
+
+
+        public IActionResult Cookie1()
+        {
+            return View();
+        }
+        public IActionResult Cookie2()
+        {
+            string cval = "张三ABCD123456";
+            HttpContext.Response.Cookies.Append(AngleX.SDK.User.AuthR.JwtTokenKey, cval);
+            return Redirect("Cookie3");
+        }
+
+        public IActionResult Cookie3()
+        {
+            ViewBag.cookie = HttpContext.Request.Cookies[AngleX.SDK.User.AuthR.JwtTokenKey];
+            return View();
+        }
     }
 }
