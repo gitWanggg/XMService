@@ -17,7 +17,7 @@ namespace Model.User
         }
 
 
-        public DbSet<AuthPwd> AuthPwd { get; set; }
+        public DbSet<AuthAccount> AuthAccount { get; set; }
 
         public DbSet<BizInfo> BizInfo { get; set; }
 

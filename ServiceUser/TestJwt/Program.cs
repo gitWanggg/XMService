@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace TestJwt
 {
@@ -6,11 +8,21 @@ namespace TestJwt
     {
         static void Main(string[] args)
         {
-            for(int i = 0; i < 200; i++) {
-                Console.WriteLine(getRandStringEx(50));
-            }
-            Console.WriteLine("Hello World!");
+            string aa = "1234567";
+            string bb = Encode32(aa);
+            Console.WriteLine(bb);
             Console.ReadLine();
+        }
+
+        public static string Encode32(string inputValue)
+        {
+            using (var md5 = MD5.Create()) {
+                byte[] result = md5.ComputeHash(Encoding.UTF8.GetBytes(inputValue));
+                StringBuilder sb = new StringBuilder();                
+                foreach (byte bItem in result)
+                    sb.Append(bItem.ToString("X2"));
+                return sb.ToString();
+            }
         }
         static readonly char[] charList = {'0','1','2','3','4','5','6','7','8','9',
                                 'A','B','C','D','E','F','G','H','I','J','K','L','M',

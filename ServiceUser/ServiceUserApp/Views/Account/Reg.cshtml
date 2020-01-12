@@ -1,0 +1,42 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Reg</title>
+    <script type="text/javascript">
+        function submit2() {
+            var pdata = { "account": $("#account").val(), "password": $("#password").val() };
+            var url = "login/verify";
+            $.post(url, pdata).done(function (data) {
+                alert(data);
+                location.href = "test/cookie3";
+                return true;
+            }).fail(function (e) {
+                alert("服务器异常:" + e.responseText || '');
+            });
+        }
+    </script>
+</head>
+<body>
+    <form method="post">
+        <div>
+            <label>账户:</label>
+            <input type="text" id="account" name="account" />
+        </div>
+        <div>
+            <label>密码:</label>
+            <input type="password" id="password" name="password" />
+        </div>
+        <div>
+            <input type="button" value="提交" onclick="submit2();" />
+        </div>
+    </form>
+    <script src="scripts/jquery-3.4.1.min.js"></script>
+</body>
+</html>

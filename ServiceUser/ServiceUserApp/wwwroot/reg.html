@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>注册</title>
+    <script type="text/javascript">
+        function submit2() {
+            var inputs = $("#reg input");
+            var pdata = {};
+            $.each(inputs, function (i,h) {
+                var jobj = $(h);
+                var name = jobj.attr('name');
+                if(name)
+                    pdata[name] = jobj.val();
+            });
+            var url = "account/reg";
+            $.post(url, pdata).done(function (data) {
+                alert("注册成功:ID:" + data);
+                return true;
+            }).fail(function (e) {
+                if (e.status == 501) {
+                    alert(e.responseText);
+                }
+                else
+                    alert("服务器异常:" + e.responseText || '');
+            });
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <form id="reg" method="post">
+            <div>
+                <label>账户:</label>
+                <input type="text" id="account" name="account" />
+            </div>
+            <div>
+                <label>昵称:</label>
+                <input type="text" id="nickName" name="nickName" />
+            </div>
+            <div>
+                <label>密码:</label>
+                <input type="password" id="password1" name="password1" />
+            </div>
+            <div>
+                <label>密码:</label>
+                <input type="password" id="password2" name="password2" />
+            </div>
+            <div>
+                <input type="button" value="提交" onclick="submit2();" />
+            </div>
+        </form>
+    </div>
+    <script src="scripts/jquery-3.4.1.min.js"></script>
+</body>
+</html>

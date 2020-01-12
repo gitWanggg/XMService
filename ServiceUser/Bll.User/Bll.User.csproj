@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AngleX" Version="1.0.6" />
+    <PackageReference Include="AngleX" Version="1.0.7" />
+    <PackageReference Include="AngleX.SDK.IDBuilder" Version="1.0.0" />
     <PackageReference Include="JWT" Version="5.3.1" />
   </ItemGroup>
 

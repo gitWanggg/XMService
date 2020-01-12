@@ -51,7 +51,7 @@ namespace BLL.SP.IDBuilder.Impl
 
                     try {
                         int nIndex = Convert.ToInt32(format);
-                        return id.ToString(fArray[nIndex]);
+                        return DateTime.Now.ToString("yyyyMMdd") + id.ToString(fArray[nIndex]);
                     }
                     catch {
                         return id.ToString();

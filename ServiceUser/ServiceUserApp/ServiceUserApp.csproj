@@ -6,6 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AngleX.SDK.IDBuilder" Version="1.0.0" />
+    <PackageReference Include="AngleXCore.Extensions.Serial" Version="1.0.1" />
+    <PackageReference Include="AngleXCore.HttpDI" Version="1.0.4" />
     <PackageReference Include="JWT" Version="5.3.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
@@ -16,6 +19,15 @@
     <ProjectReference Include="..\AngleX.SDK.User\AngleX.SDK.User.csproj" />
     <ProjectReference Include="..\Bll.User\Bll.User.csproj" />
     <ProjectReference Include="..\Model.User\Model.User.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="config\XEurekaApp.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="config\XEurekaServer.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

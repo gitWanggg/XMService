@@ -29,7 +29,9 @@ namespace ServiceUserApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
+            AngleXCore.Extensions.DI.XSerialSerServiceCollectionExtensions.UseISerial(services);
+            AngleXCore.Extensions.DI.XHttpServiceCollectionExtensions.UseHttpClient(services);
+
             services.AddDbContext<UserDBContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("db")));
             Configuration.UseDefaultDBContextOptions();
@@ -41,12 +43,21 @@ namespace ServiceUserApp
             services.AddSingleton<JwtImpl>();
             services.TryAddSingleton<IJwtable>(serviceProvider => serviceProvider.GetRequiredService<JwtImpl>());
 
+
+            services.AddSingleton<Bll.User.AuthCenter.Impl.AuthFactoryImpl>();
+            services.TryAddSingleton<Bll.User.AuthCenter.IAuthFactory>(serviceProvider => serviceProvider.GetRequiredService<Bll.User.AuthCenter.Impl.AuthFactoryImpl>());
+
+            services.AddSingleton<Bll.User.UserCenter.UserApi>();
+            services.TryAddSingleton<Bll.User.UserCenter.IUserApi>(serviceProvider => serviceProvider.GetRequiredService<Bll.User.UserCenter.UserApi>());
+
+            services.AddTransient<Bll.User.UserAccountService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            AngleX.AppXGlobal.Init(app.ApplicationServices); //初始化应用程序
             if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
             }

@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 namespace Model.User
 {
-    public class AuthPwd
+    public class AuthAccount
     {
         [Key]
         public string ID { get; set; }
