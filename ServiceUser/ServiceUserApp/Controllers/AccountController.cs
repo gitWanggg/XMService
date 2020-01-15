@@ -29,20 +29,19 @@ namespace ServiceUserApp.Controllers
         /// <param name="Password"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult<string> Verify(string Account, string Password)
+        public ActionResult<string> Verify([FromForm]string account,[FromForm]string password)
         {
-            if (Account == "1" && Password == "1") {
-                AuthUser auser = new AuthUser();
-                auser.ID = AngleX.CommonHelper.getTimeStamp().ToString();
-                auser.NickName = "张三";
+            try {
+                var userInfo = this.AccoutSvr.Query(account, password);
+                var auser = new AuthUser() { ID=userInfo.ID, NickName=userInfo.NickName };
                 string token = Ijwt.Encoding(auser);
                 HttpContext.Response.Cookies.Append(AngleX.SDK.User.AuthR.JwtTokenKey, token);
                 return token;
             }
-            else {
+            catch(AngleX.CustomException ex) {
                 HttpContext.Response.StatusCode = AngleX.HttpCodeStatus.Http501;
-                return "账户密码错误";
-            }
+                return ex.Message;
+            }           
         }
 
         /// <summary>

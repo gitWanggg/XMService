@@ -5,6 +5,8 @@ using System.Transactions;
 using AngleX;
 using Bll.User.AuthCenter;
 using Bll.User.UserCenter;
+using Model.User;
+
 namespace Bll.User
 {
     public class UserAccountService
@@ -44,6 +46,19 @@ namespace Bll.User
                 scope.Complete();
                 return uid;
             }
+        }
+
+        public UserInfo Query(string Account,string Pwd)
+        {
+            IAuthable iAuth = IAuthFac.Create(EnumAuthType.账户密码);
+            var authR = iAuth.Auth(new AuthRuest() { Account=Account, Evidence=Pwd });
+            if (authR.Code != AuthCenter.AuthR.Success) {
+                throw new CustomException(authR.ErrorMsg);
+            }
+            UserInfo uInfo =  IUser.Find(authR.UserID);
+            if (uInfo == null)
+                throw new CustomException("数据异常，无法找到该用户信息");
+            return uInfo;
         }
     }
 }

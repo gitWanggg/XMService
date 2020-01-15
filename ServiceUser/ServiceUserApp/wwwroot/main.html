@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>主要</title>
+</head>
+<body>
+    <h1>
+        你好:
+    </h1>
+    <h1 id="cookieH1"></h1>
+    <script type="text/javascript">
+        function getCookie(name) {
+            var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+
+            if (arr = document.cookie.match(reg))
+
+                return unescape(arr[2]);
+            else
+                return null;
+        } 
+        document.getElementById("cookieH1").innerText = getCookie("Authorization");
+    </script>
+</body>
+</html>

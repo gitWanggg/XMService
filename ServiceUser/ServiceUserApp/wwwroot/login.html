@@ -6,10 +6,9 @@
     <script type="text/javascript">
         function submit2() {
             var pdata = { "account": $("#account").val(), "password": $("#password").val() };
-            var url = "login/verify";
-            $.post(url,pdata).done(function (data) {
-                alert(data);
-                location.href = "test/cookie3";
+            var url = "account/verify";
+            $.post(url,pdata).done(function (data) {                
+                location.href = "main.html";
                 return true;
             }).fail(function (e) {
                 alert("服务器异常:" + e.responseText || '');
