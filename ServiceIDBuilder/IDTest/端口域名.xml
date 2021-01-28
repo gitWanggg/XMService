@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <node>
+    <name>oiyue.com首页</name>
+    <port>8090</port>
+    <domain>www.oiyue.com</domain>
+  </node>
+  <node>
+    <name>海伦</name>
+    <port>8091</port>
+    <domain>hailun.oiyue.com</domain>
+  </node>
+  <node>
+    <name>gamePhP测试</name>
+    <port>8092</port>
+    <domain>game.oiyue.com</domain>
+  </node>
+</root>
