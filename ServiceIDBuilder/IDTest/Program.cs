@@ -12,7 +12,7 @@ namespace IDTest
                 System.Threading.Thread th = new System.Threading.Thread(exe);
                 th.Start();
             }
-
+            Console.WriteLine("ok");
             Console.ReadLine();
         }
 
