@@ -9,5 +9,7 @@ namespace AngleX.SDK.IDBuilder
         string NewID<T>() where T:class;
 
         string NewID<T>(string Format) where T:class;
+
+        string NewID<T>(int Format) where T : class;
     }
 }

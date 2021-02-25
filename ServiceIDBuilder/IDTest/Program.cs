@@ -20,7 +20,7 @@ namespace IDTest
         {
             for (int i = 0; i < 4000; i++) {
                 Class1 c2 = new Class1();
-                c2.ID = AngleX.SDK.IDBuilder.IDManager.Builder.NewID<Class2>();
+                c2.ID = AngleX.SDK.IDBuilder.IDManager.Builder.NewID<Class2>(5);
                 c2.Name = "002";
                 Console.WriteLine(c2.ID);
             }

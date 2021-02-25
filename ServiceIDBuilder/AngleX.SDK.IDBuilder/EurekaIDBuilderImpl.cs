@@ -35,6 +35,10 @@ namespace AngleX.SDK.IDBuilder
             }
             return AngleX.AppXGlobal.IHttp.DownLoadJson(dicUrlCache[fullname]);
         }
+        public string NewID<T>(int Format) where T : class
+        {
+            return NewID<T>(Format.ToString());
+        }
         string buildurl(string fullName,string format)
         {
             string path = string.Format("IDBuilder/h/{0}/{1}/{2}", AngleX.Eureka.AppXContext.Current.AppID,fullName,format);
