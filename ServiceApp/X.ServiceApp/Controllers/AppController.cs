@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace X.ServiceApp.Controllers
 {
-    [Route("[controller]")]
+    [Route("[controller]/[action]")]
     [ApiController]
     public class AppController : Controller
     {
@@ -17,6 +17,11 @@ namespace X.ServiceApp.Controllers
         public IActionResult Login()
         {
             return Json("");
+        }
+        public ActionResult<string> HardDisk(string appid, string name, string format)
+        {
+            return "";
+
         }
     }
 }
