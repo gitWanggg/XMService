@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="X_AppServiceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AppInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AppType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AppSecret">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Secret" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="SecretPre" Type="nvarchar" MaxLength="100" />
+          <Property Name="RefreshTime" Type="datetime" Nullable="false" />
+          <Property Name="PreTime" Type="datetime" Nullable="false" />
+          <Property Name="TimeOutTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AppSecretLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AppID" Type="int" Nullable="false" />
+          <Property Name="Secret" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="InputTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="X_AppServiceModelStoreContainer">
+          <EntitySet Name="AppInfo" EntityType="Self.AppInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AppSecret" EntityType="Self.AppSecret" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AppSecretLog" EntityType="Self.AppSecretLog" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="X_AppServiceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AppInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AppType" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AppSecret">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Secret" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SecretPre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RefreshTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PreTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TimeOutTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="AppSecretLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AppID" Type="Int32" Nullable="false" />
+          <Property Name="Secret" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="InputTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="X_AppServiceEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AppInfo" EntityType="Self.AppInfo" />
+          <EntitySet Name="AppSecret" EntityType="Self.AppSecret" />
+          <EntitySet Name="AppSecretLog" EntityType="Self.AppSecretLog" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="X_AppServiceModelStoreContainer" CdmEntityContainer="X_AppServiceEntities">
+          <EntitySetMapping Name="AppInfo">
+            <EntityTypeMapping TypeName="X_AppServiceModel.AppInfo">
+              <MappingFragment StoreEntitySet="AppInfo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="AppType" ColumnName="AppType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AppSecret">
+            <EntityTypeMapping TypeName="X_AppServiceModel.AppSecret">
+              <MappingFragment StoreEntitySet="AppSecret">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Secret" ColumnName="Secret" />
+                <ScalarProperty Name="SecretPre" ColumnName="SecretPre" />
+                <ScalarProperty Name="RefreshTime" ColumnName="RefreshTime" />
+                <ScalarProperty Name="PreTime" ColumnName="PreTime" />
+                <ScalarProperty Name="TimeOutTime" ColumnName="TimeOutTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AppSecretLog">
+            <EntityTypeMapping TypeName="X_AppServiceModel.AppSecretLog">
+              <MappingFragment StoreEntitySet="AppSecretLog">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AppID" ColumnName="AppID" />
+                <ScalarProperty Name="Secret" ColumnName="Secret" />
+                <ScalarProperty Name="InputTime" ColumnName="InputTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
