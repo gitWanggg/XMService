@@ -14,9 +14,9 @@ namespace X.ServiceApp.Controllers
         {
             return View();
         }
-        public IActionResult Login()
+        public ActionResult<string> Login(string appid)
         {
-            return Json("");
+            return appid;
         }
         public ActionResult<string> HardDisk(string appid, string name, string format)
         {
