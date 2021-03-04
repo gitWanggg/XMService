@@ -8,6 +8,8 @@ namespace X.SDKApp
     {
         IMyHttp http;
 
+        Token token;
+
         Dictionary<string, ApiInfo> dicApis;
         public ServiceInfo Service { get; set; }
 
