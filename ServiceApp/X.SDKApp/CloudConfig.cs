@@ -16,5 +16,7 @@ namespace X.SDKApp
         public List<ServiceInfo> Dependencies { get; set; }
 
 
+        [XmlElement("authcenter")]
+        public ServiceInfo authcenter { get; set; }
     }
 }

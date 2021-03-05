@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model.XApp", "Model.XApp\Mo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{DD5C5E1F-9BCA-4A7F-AFAF-F4EDC09043F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "X.SDKApp", "X.SDKApp\X.SDKApp.csproj", "{BA1CBDEE-A0E2-46F0-85EF-36585D7AA103}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "X.SDKApp", "X.SDKApp\X.SDKApp.csproj", "{BA1CBDEE-A0E2-46F0-85EF-36585D7AA103}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "X.AppSvr", "X.AppSvr\X.AppSvr.csproj", "{19F87751-ABE9-4748-9D92-FA76CD3AEC64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{BA1CBDEE-A0E2-46F0-85EF-36585D7AA103}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA1CBDEE-A0E2-46F0-85EF-36585D7AA103}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA1CBDEE-A0E2-46F0-85EF-36585D7AA103}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19F87751-ABE9-4748-9D92-FA76CD3AEC64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19F87751-ABE9-4748-9D92-FA76CD3AEC64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19F87751-ABE9-4748-9D92-FA76CD3AEC64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19F87751-ABE9-4748-9D92-FA76CD3AEC64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

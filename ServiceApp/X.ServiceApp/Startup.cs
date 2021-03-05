@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using X.ServiceApp.src;
 
 namespace X.ServiceApp
 {
@@ -24,7 +25,9 @@ namespace X.ServiceApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            Configuration.UseDefaultDBContextOptions();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddSingleton<X.AppSvr.IAppHandler, AppSvr.XAppHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

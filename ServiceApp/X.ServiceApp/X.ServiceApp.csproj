@@ -13,6 +13,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Model.XApp\Model.XApp.csproj" />
+    <ProjectReference Include="..\X.AppSvr\X.AppSvr.csproj" />
+    <ProjectReference Include="..\X.SDKApp\X.SDKApp.csproj" />
   </ItemGroup>
 
 </Project>
