@@ -22,5 +22,9 @@ namespace X.SDKApp
                 return DateTime.Now > TimeOut;
             }
         }
+        public string ToJoin()
+        {
+            return Secret+","+TimeOut.ToString("yyyy-MM-dd HH:mm:ss");
+        }
     }
 }
