@@ -8,15 +8,15 @@ namespace X.AppSvr
 {
     class DBHandler
     {
-        public AppSecretSvr Find(int AppID)
+        public PreToken Find(int AppID)
         {
             using(DBXAppContext db=new DBXAppContext()) {
                 return db.AppSecret.Where(T => T.ID == AppID)
-                    .Select(T => new AppSecretSvr() {
+                    .Select(T => new PreToken() {
                         ID = T.ID,
                         Secret = T.Secret,
                         SecretPre = T.SecretPre,
-                        TimeOutTime = T.TimeOutTime
+                        TimeOut = T.TimeOutTime
                     }).FirstOrDefault();
             }
         }

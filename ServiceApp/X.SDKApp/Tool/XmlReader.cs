@@ -17,7 +17,7 @@ namespace X.SDKApp
                     return res;
                 }
             }
-            catch(Exception ex) {
+            catch {
                 return null;
             }
         }      

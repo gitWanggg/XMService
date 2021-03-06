@@ -18,9 +18,6 @@ namespace X.SDKApp
         /// 过期时间24小时
         /// </summary>
         static readonly int ExpSeconds = 24 * 3600;
-        /// <summary>
-        /// 网络延迟上限
-        /// </summary>
-        static readonly int NetDelay = 10;
+      
     }
 }

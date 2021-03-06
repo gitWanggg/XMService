@@ -18,7 +18,7 @@ namespace X.ServiceApp.Controllers
         {
             return null;
         }
-
+        
         public ActionResult<Boolean> Verify()
         {
             return false;
