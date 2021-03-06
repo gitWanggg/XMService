@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using X.SDKApp;
-using X.SDKApp.Tool;
 namespace X.AppSvr
 {
     public class XAppHandler : IAppHandler
