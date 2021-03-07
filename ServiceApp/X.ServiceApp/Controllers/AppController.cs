@@ -28,7 +28,7 @@ namespace X.ServiceApp.Controllers
             return token.ToJoin();
         }
         
-        public ActionResult<Boolean> Verify(int AppID, string Source, string Sign)
+        public ActionResult<bool> Verify(int AppID, string Source, string Sign)
         {
             return appHandler.Verify(AppID,Source,Sign);
         }
