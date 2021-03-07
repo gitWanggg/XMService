@@ -35,7 +35,8 @@ namespace X.AppSvr
                         app = new AppSecret() {
                             ID = AppID,
                             RefreshTime = DateTime.Now,
-                            SecretPre = Secret
+                            SecretPre = Secret,
+                            Secret=Secret
                         };
                         context.Entry<AppSecret>(app).State = Microsoft.EntityFrameworkCore.EntityState.Added;
                     }
