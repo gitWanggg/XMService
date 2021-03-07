@@ -8,6 +8,6 @@ namespace X.AppSvr
     {
         Token Find(int AppID);
 
-        bool Verify(int AppID, string Sign, string Source);
+        bool Verify(int AppID,  string Source, string Sign);
     }
 }

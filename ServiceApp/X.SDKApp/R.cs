@@ -14,10 +14,7 @@ namespace X.SDKApp
 
         public static readonly string NotFount = "无法找到文件:";
 
-        /// <summary>
-        /// 过期时间24小时
-        /// </summary>
-        static readonly int ExpSeconds = 24 * 3600;
+        
       
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using X.SDKApp.Tool;
+using X.SDKApp;
 namespace X.AppSvr
 {
     class TokenCreater

@@ -15,7 +15,21 @@ namespace X.SDKApp
         /// </summary>
         public DateTime TimeOut { get; set; }
 
-
+        public static Token CastToken(string SecAndTime)
+        {
+            try {
+                string[] arr = SecAndTime.Split(',');
+                Token token = new Token() {
+                    Secret = arr[0],
+                    TimeOut = Convert.ToDateTime(arr[1])
+                };
+                return token;
+            }
+            catch {
+                return null;
+            }
+        }
+        
         public bool IsTimeOut
         {
             get {

@@ -3,30 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using X.SDKApp;
+using X.AppSvr;
 namespace X.ServiceApp.Controllers
 {
     [Route("[controller]/[action]")]
     [ApiController]
     public class AppController : Controller
     {
+        IAppHandler appHandler;
+
+        public AppController(IAppHandler iHandler)
+        {
+            appHandler = iHandler;
+        }
+        
+
         public IActionResult Index()
         {
             return View();
         }
-        public ActionResult<Token> Login(string appid)
+        public ActionResult<string> Find(int AppID)
         {
-            return null;
+            var token = appHandler.Find(AppID);
+            return token.ToJoin();
         }
         
-        public ActionResult<Boolean> Verify()
+        public ActionResult<Boolean> Verify(int AppID, string Source, string Sign)
         {
-            return false;
+            return appHandler.Verify(AppID,Source,Sign);
         }
-        public ActionResult<string> HardDisk(string appid, string name, string format)
-        {
-            return "";
-
-        }
+       
     }
 }
