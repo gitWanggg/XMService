@@ -10,8 +10,7 @@ namespace X.ServiceApp.Controllers
     public class HomeController : Controller
     {
         public IActionResult Index()
-        {
-            throw new X.StdNorm.CustomException("hello exception");
+        {            
             return View();
         }
     }
