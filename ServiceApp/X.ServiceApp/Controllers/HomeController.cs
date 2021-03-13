@@ -11,6 +11,7 @@ namespace X.ServiceApp.Controllers
     {
         public IActionResult Index()
         {
+            throw new X.StdNorm.CustomException("hello exception");
             return View();
         }
     }

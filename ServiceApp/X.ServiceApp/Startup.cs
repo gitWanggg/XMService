@@ -36,7 +36,7 @@ namespace X.ServiceApp
             if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseMiddleware<ExceptionMiddleware>();
             app.UseMvc();
         }
     }
