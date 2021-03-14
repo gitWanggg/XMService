@@ -15,11 +15,12 @@ namespace X.SDKApp
         HttpClient client;
         public MyHttp(string host)
         {
+            
             client = new HttpClient();
             client.BaseAddress = new Uri(host);
             ///client.DefaultRequestHeaders.Add("Accept", "application/json, text/javascript, */*; q=0.01");
         }
-       
+        
         protected byte[] HandExeR(Task<HttpResponseMessage> task)
         {
             HttpResponseMessage response = task.Result;
