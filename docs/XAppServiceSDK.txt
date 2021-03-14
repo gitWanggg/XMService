@@ -1,0 +1,55 @@
+签名方式
+if Get  string=querystring sortask
+
+ifPost  string =inputStream =>utf-8 + "key"+string
+
+
+
+apiInfo
+	Format()
+
+AppInfo
+	ServiceInfo
+		Dictiory<string, ApiInfo> apiInfo
+		XAppServiceInfo
+
+XmlReader=>CloudConfig
+			AppInfo
+			AuthcenterService
+			List<ServiceInfo>
+
+
+ApiService
+	IHttpClient
+		byte[] HttpGet(string Url);
+		string HttpPost(string url,string Data);
+		byte[] HttpPost(string url,byte[] Data)
+	ServiceInfo	
+	Token
+	
+	RefreshToken
+	IsTimeOut
+	
+	
+ApiCollections
+	Dictiory<appid,ApiService>
+	XAppService{get;}
+	
+XApi	
+	ISerable;
+	
+	Get();
+	Get(Dictiory<string,string> QueryString);
+	Get(Url);
+	
+	Post(string Data);
+	Post<T>(object Data);
+    byte[]	HttpPost(byte[] Data);
+	
+	BuilderURL(Dictiory<string,string> QueryString);
+XCloud	
+	Init( Iserable);
+	GetService(int AppID)
+	
+	
+	
