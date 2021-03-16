@@ -1,0 +1,822 @@
+﻿{
+  "测试": {
+    "DevValuesKey": "Name,OrderCount,Phone,Address", //开发者提供的动态内容
+    "DevValuesDescribe": "姓名,订单量,手机,地址", //开发者提供的对动态内容的解释描述
+    "ShortID": "OPENTM201342674", //模板编号,标题发展合伙人
+    "TopColor": "", //标题颜色
+    "FirstData": "首行文字{{=Name}}",
+    "FirstDataColor": "#FF3333", //首行颜色
+    "RemarkData": "结尾内容{{=Name}}",
+    "RemarkDataColor": "", //结尾颜色
+    "KeyWords": [
+      {
+        "Text": "内容1{{=OrderCount}}",
+        "Color": "#FF0088"
+      },
+      {
+        "Text": "内容2{{=Address}}",
+        "Color": "#0066FF"
+      },
+      {
+        "Text": "内容3{{=Address}}",
+        "Color": "#0066FF"
+      },
+      {
+        "Text": "内容4{{=Address}}",
+        "Color": "#0066FF"
+      },
+      {
+        "Text": "内容5{{=Phone}}",
+        "Color": ""
+      }
+
+    ]
+  },
+  "扫码合伙人完善信息提醒": {
+    "DevValuesKey": "SchoolName,Uplevel,Time",
+    "DevValuesDescribe": "店铺名称,上级合伙人,时间",
+    "ShortID": "OPENTM414814281",
+    "TopColor": "#000000",
+    "FirstData": "来自【{{=SchoolName}}】",
+    "FirstDataColor": "#000000",
+    "RemarkData": "你好{{=Name}}，你将申请成为{{=Uplevel}}的合伙人,点击完善信息。",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "普通用户",
+        "Color": "#000000"
+      },
+      {
+        "Text": "合伙人",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=Uplevel}}",
+        "Color": "#000000"
+      }
+    ]
+  },
+  "需审核合伙人提醒": {
+    "DevValuesKey": "SchoolName,Name,Uplevel,Phone,Status,Time",
+    "DevValuesDescribe": "店铺名称,姓名,上级合伙人,手机,审核状态,时间",
+    "ShortID": "OPENTM407371770",
+    "TopColor": "#000000",
+    "FirstData": "来自【{{=SchoolName}}】",
+    "FirstDataColor": "#000000",
+    "RemarkData": "你好,{{=Name}}申请成为你的合伙人\r\n\r\n点击审核",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "{{=Name}}合伙人申请",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=Status}}",
+        "Color": "#000000"
+      }
+    ]
+  },
+  "审核结果通知申请人通过": {
+    "DevValuesKey": "SchoolName,Name,Uplevel,Phone,Status,Time,Time",
+    "DevValuesDescribe": "店铺名称,姓名,上级合伙人,手机,审核状态,时间",
+    "ShortID": "OPENTM207568116",
+    "TopColor": "#000000",
+    "FirstData": "来自【{{=SchoolName}}】",
+    "FirstDataColor": "#000000",
+    "RemarkData": "你好，你申请成为{{=Uplevel}}的合伙人\r\n\r\n审核状态：【{{=Status}}】",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "{{=Name}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=Time}}",
+        "Color": "#000000"
+      }
+    ]
+  },
+  "审核结果通知申请人失败": {
+    "DevValuesKey": "SchoolName,Name,Uplevel,Phone,Status,Time,Time,Reason",
+    "DevValuesDescribe": "店铺名称,姓名,上级合伙人,手机,审核状态,时间,拒绝原因",
+    "ShortID": "OPENTM416961050",
+    "TopColor": "#000000",
+    "FirstData": "来自【{{=SchoolName}}】",
+    "FirstDataColor": "#000000",
+    "RemarkData": "你好{{=Name}}，你申请成为{{=Uplevel}}的合伙人审核结果",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "{{=Status}}\r\n原因：{{=Reason}}",
+        "Color": "#ee0000"
+      },
+      {
+        "Text": "{{=Name}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "合伙人注册",
+        "Color": "#000000"
+      }
+    ]
+  },
+  "审核结果通知上级人": {
+    "DevValuesKey": "SchoolName,Name,Uplevel,Phone,Status,Time,Time",
+    "DevValuesDescribe": "店铺名称,姓名,上级合伙人,手机,审核状态,时间",
+    "ShortID": "OPENTM416961050",
+    "TopColor": "#000000",
+    "FirstData": "来自【{{=SchoolName}}】",
+    "FirstDataColor": "#000000",
+    "RemarkData": "你好，{{=Name}}申请成为你的合伙人{{=Status}}",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "{{=Status}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=Name}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "合伙人注册",
+        "Color": "#000000"
+      }
+    ]
+  },
+  "校长绑定通知": {
+    "DevValuesKey": "SchoolName,Name,NickName,Account",
+    "DevValuesDescribe": "店铺名称,姓名,昵称,账户",
+    "ShortID": "OPENTM217363134",
+    "TopColor": "#000000",
+    "FirstData": "来自：【{{=SchoolName}}】绑定管理员",
+    "FirstDataColor": "#000000",
+    "RemarkData": "你好{{=NickName}}",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "{{=Account}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "你即将成为{{=SchoolName}}的超级管理员\r\n点击继续操作",
+        "Color": "#000000"
+      }
+    ]
+  },
+  "校长绑定成功通知": {
+    "DevValuesKey": "SchoolName,Name,NickName,Account",
+    "DevValuesDescribe": "店铺名称,姓名,昵称,账户",
+    "ShortID": "OPENTM217363134",
+    "TopColor": "#000000",
+    "FirstData": "来自【{{=SchoolName}}】绑定管理员",
+    "FirstDataColor": "#000000",
+    "RemarkData": "你好{{=NickName}}\r\n您已成功绑定超级管理员身份",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "{{=Account}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "您可以直接使用此微信登录迎驾平台小程序端",
+        "Color": "#000000"
+      }
+    ]
+  },
+  "合伙人注销提醒本人": {
+    "DevValuesKey": "SchoolName,Name,Uplevel,Phone,Status,Time,Time,Reason",
+    "DevValuesDescribe": "店铺名称,姓名,上级合伙人,手机,审核状态,时间,注销原因",
+    "ShortID": "OPENTM417244243",
+    "TopColor": "#000000",
+    "FirstData": "来自【{{=SchoolName}}】",
+    "FirstDataColor": "#000000",
+    "RemarkData": "你好{{=Name}}，您的{{=SchoolName}}合伙人身份已被注销",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "{{=Name}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=Reason}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=Status}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=Time}}",
+        "Color": "#000000"
+      }
+    ]
+  },
+  "合伙人注销提醒上级": {
+    "DevValuesKey": "SchoolName,Name,Uplevel,Phone,Status,Time,Time,Reason",
+    "DevValuesDescribe": "店铺名称,姓名,上级合伙人,手机,审核状态,时间,注销原因",
+    "ShortID": "OPENTM417244243",
+    "TopColor": "#000000",
+    "FirstData": "来自【{{=SchoolName}}】",
+    "FirstDataColor": "#000000",
+    "RemarkData": "你好，你的下级{{=Name}}合伙人身份已注销。",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "{{=Name}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=Reason}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=Status}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=Time}}",
+        "Color": "#000000"
+      }
+    ]
+  },
+  "合伙人升级通知": {
+    "DevValuesKey": "SchoolName,Name,CurrentLevel,NextLevel,Time,CurrentScore,DiffScore,CurrentAward, NextAward",
+    "DevValuesDescribe": "店铺名称,姓名,原等级,升级后等级,时间,当前积分,升级所差积分,当前奖励，下个奖励",
+    "ShortID": "OPENTM414814252",
+    "TopColor": "#000000",
+    "FirstData": "来自【{{=SchoolName}}】",
+    "FirstDataColor": "#f20",
+    "RemarkData": "您好，{{=Name}}恭喜你的合伙人等级已升级,\r\n点击领取你的升级奖励", //当前积分{{=Score}},距下一等级还差{{=difScore}}为{{=NextLevel}}{{=CurrentScore}}
+    "RemarkDataColor": "#ee220",
+    "KeyWords": [
+      {
+        "Text": "{{=Name}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=CurrentLevel}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=NextLevel}}",
+        "Color": "#000000"
+      }
+
+    ]
+  },
+
+  "发布新任务提醒": {
+    "DevValuesKey": "SchoolName,Name,TaskAward,Period,TaskName,Read,PullNew,Intention,Deal",
+    "DevValuesDescribe": "店铺名称,合伙人姓名,任务奖励,任务周期,任务名称,阅读,拉新,意向,成交", //通知所有合伙人
+    "ShortID": "OPENTM405883670",
+    "TopColor": "#000000",
+    "FirstData": "来自【{{=SchoolName}}】新任务提醒",
+    "FirstDataColor": "#000000",
+    "RemarkData": "您好{{=Name}}\r\n{{=SchoolName}}发布了一个【{{=TaskName}}】任务\r\n请尽快领取\r\n有奖励等着你哟~！",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "阅读:{{=Read}}\r\n拉新:{{=PullNew}}\r\n意向:{{=Intention}}\r\n成交:{{=Deal}}\r\n任务奖励{{=TaskAward}}元",
+        "Color": "#000000"
+      },
+      {
+        "Text": "待领取",
+        "Color": "#000000"
+      }
+    ]
+  },
+  "任务执行通知": {
+    "DevValuesKey": "SchoolName,Name,TaskName,Period,Receive,Complete,Unfinished,Expend",
+    "DevValuesDescribe": "店铺名称,管理员姓名,任务名称,任务周期,已领取,已完成,未完成,任务奖励支出", //通知管理员
+    "ShortID": "OPENTM405883670",
+    "TopColor": "#000000",
+    "FirstData": "来自【{{=SchoolName}}】任务执行情况",
+    "FirstDataColor": "#000000",
+    "RemarkData": "点击查看任务详情",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "{{=Period}}\r\n{{=TaskName}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "已领取{{=Receive}}\r\n已完成{{=Complete}}\r\n未完成{{=Unfinished}}\r\n任务支出：{{=Expend}}",
+        "Color": "#000000"
+      }
+    ]
+  },
+  "任务进度通知": {
+    "DevValuesKey": "SchoolName,TaskName,Name,Period,TaskStatus,TaskName,Receive,PullNew,Intention,Deal,",
+    "DevValuesDescribe": "店铺名称,任务名称,合伙人姓名,任务周期,任务状态,阅读,拉新,意向,成交,", //通知全部合伙人
+    "ShortID": "OPENTM405883670",
+    "TopColor": "#000000",
+    "FirstData": "来自【{{=SchoolName}}】任务进度",
+    "FirstDataColor": "#000000",
+    "RemarkData": "您好{{=Name}}\r\n{{=TaskName}}任务完成情况",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "阅读{{=Read}}  拉新{{=PullNew}}  意向{{=Intention}}  成交{{=Deal}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=TaskStatus}}",
+        "Color": "#000000"
+      }
+    ]
+  },
+  "任务结束提醒通知": {
+    "DevValuesKey": "SchoolName,TaskName,EndTime,Name,Period,TaskStatus,Read,PullNew,Intention,Deal",
+    "DevValuesDescribe": "店铺名称,任务名称,结束时间,合伙人姓名,任务周期,任务状态,阅读,拉新,意向,成交,", //通知未完成任务的合伙人
+    "ShortID": "OPENTM405883670",
+    "TopColor": "#000000",
+    "FirstData": "来自【{{=SchoolName}}】任务结束提醒",
+    "FirstDataColor": "#000000",
+    "RemarkData": "你好{{=Name}},您有一个{{=SchoolName}}{{=TaskName}}任务\r\n将在【{{=EndTime}}】结束，离目标越来越近了，加油!",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "阅读{{=Read}}  拉新{{=PullNew}}  意向{{=Intention}}  成交{{=Deal}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "任务进度{{=TaskStatus}} ",
+        "Color": "#000000"
+      }
+    ]
+  },
+  "任务完成通知": {
+    "DevValuesKey": "SchoolName,TaskName,Name,CompleteTime,TaskAward,TaskStatus,Read,PullNew,Intention,Deal",
+    "DevValuesDescribe": "店铺名称,任务名称,合伙人姓名,完成时间,任务奖励,任务状态,阅读,拉新,意向,成交", //通知已完成任务的合伙人
+    "ShortID": "OPENTM417944361",
+    "TopColor": "#000000",
+    "FirstData": "来自【{{=SchoolName}}】",
+    "FirstDataColor": "#000000",
+    "RemarkData": "你好{{=Name}}\r\n恭喜您完成了{{=SchoolName}}{{=TaskName}}任务\r\n感谢你的参与,奖励{{=TaskAward}}已通过微信发送到零钱，请查收！",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "{{=SchoolName}}{{=TaskName}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "阅读{{=Read}}  拉新{{=PullNew}}  意向{{=Intention}}  成交{{=Deal}} ",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=CompleteTime}}",
+        "Color": "#000000"
+      }
+    ]
+  },
+  "奖励到账通知": {
+    "DevValuesKey": "SchoolName,TaskName,Name,Time,TaskAward",
+    "DevValuesDescribe": "店铺名称,任务名称,合伙人姓名,到账时间,任务奖励", //通知已发放佣金的合伙人
+    "ShortID": "OPENTM400889746",
+    "TopColor": "#000000",
+    "FirstData": "来自【{{=SchoolName}}】",
+    "FirstDataColor": "#000000",
+    "RemarkData": "你好{{=Name}},恭喜您{{=SchoolName}}{{=TaskName}}的任务奖励已到账",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "{{=SchoolName}}{{=Name}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=TaskAward}}元",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=Time}}",
+        "Color": "#000000"
+      }
+    ]
+  },
+  "活动发布成功通知": {
+    "DevValuesKey": "SchoolName,Name,ActivityName,,ActivityType,Period,Radius,CenterAddress,ViewSecond,ReadAward,ShareAward",
+    "DevValuesDescribe": "店铺名称,合伙人姓名,活动名称,活动类型,活动有效期,半径,中心,浏览秒数,阅读奖励,分享奖励", //通知已发放佣金的合伙人
+    "ShortID": "OPENTM401887529",
+    "TopColor": "#000000",
+    "FirstData": "来自【{{=SchoolName}}】推广活动",
+    "FirstDataColor": "#000000",
+    "RemarkData": "您好{{=Name}},{{=SchoolName}}发布了一个{{=ActivityType}}-M《{{=ActivityName}}》的新活动待你分享推广",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "《{{=ActivityName}}》",
+        "Color": "#000000"
+      },
+      {
+        "Text": "阅读¥{{=ReadAward}}元,分享¥{{=ShareAward}}元",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=ActivityType}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "活动奖励规则:(阅读{{=ViewSecond}}秒即可获取)",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=Period}}",
+        "Color": "#000000"
+      }
+    ]
+  },
+  "订单未支付提醒上级": {
+    "DevValuesKey": "SchoolName,GoodsName,Name,OrderNumber,OrderTime,OrderStatus,OrderPrice,Phone",
+    "DevValuesDescribe": "店铺名称,商品名称,姓名,订单号,订单时间,订单状态,订单价格,电话",
+    "ShortID": "OPENTM207664694",
+    "TopColor": "#000000",
+    "FirstData": "来自【{{=SchoolName}}】订单待支付",
+    "FirstDataColor": "#000000",
+    "RemarkData": "订单状态：{{=OrderStatus}}\r\n客户姓名：{{=Name}}\r\n客户电话：{{=Phone}}\r\n订单即将失效，请尽快联系客户完成支付。",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "{{=OrderNumber}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=GoodsName}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=OrderPrice}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=OrderTime}}",
+        "Color": "#000000"
+      }
+    ]
+  },
+  "订单完成提醒上级": {
+    "DevValuesKey": "SchoolName,GoodsName,Name,OrderNumber,OrderTime,OrderStatus,OrderPrice,Phone",
+    "DevValuesDescribe": "店铺名称,商品名称,姓名,订单号,订单时间,订单状态,订单价格,电话",
+    "ShortID": "OPENTM207664694",
+    "TopColor": "#000000",
+    "FirstData": "来自【{{=SchoolName}}】",
+    "FirstDataColor": "#000000",
+    "RemarkData": "订单状态：{{=OrderStatus}}\r\n客户姓名：{{=Name}}\r\n客户电话：{{=Phone}}",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "{{=OrderNumber}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=GoodsName}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=OrderPrice}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=OrderTime}}",
+        "Color": "#000000"
+      }
+    ]
+  },
+  "订单结算合伙人提醒": {
+    "DevValuesKey": "SchoolName,GoodsName,Name,BuyerName,OrderNumber,OrderTime,OrderPrice,BuyerPhone,AwardType,AwardPrice,SettleTime",
+    "DevValuesDescribe": "店铺名称,商品名称,合伙人, 购买人，订单号，订单时间，订单金额，购买人手机，奖励类型，奖励金额，结算时间", //通知已发放佣金的合伙人
+    "ShortID": "OPENTM400889746",
+    "TopColor": "#000000",
+    "FirstData": "来自【{{=SchoolName}}】奖励到账",
+    "FirstDataColor": "#000000",
+    "RemarkData": "你好{{=Name}},恭喜您{{=SchoolName}}订单奖励已到账",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "商品：{{=GoodsName}}  购买人:{{=BuyerName}},{{=BuyerPhone}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=AwardType}}:{{=AwardPrice}}元",
+        "Color": "#000000"
+      },
+      {
+        "Text": "订单号{{=OrderNumber}},订单时间{{=OrderTime}},结算时间{{=SettleTime}}",
+        "Color": "#000000"
+      }
+    ]
+  },
+  "每日报表提醒": {
+    "DevValuesKey": "SchoolName,Time,Read,PullNew,Intention,Deal,Consult,CurHonor,NextHonor,DiffScore,Score,Money",
+    "DevValuesDescribe": "店铺名称,时间,阅读,拉新,意向,成交,咨询,当前等级,下一等级,升级所差积分,当前积分,升级奖励",
+    "ShortID": "OPENTM204851741",
+    "TopColor": "#000000",
+    "FirstData": "来自【{{=SchoolName}}】今日推广数据日报",
+    "FirstDataColor": "#2281f8",
+    "RemarkData": "小伙伴们都在发文拓客哦\r\n机会总是眷顾努力的人~加油",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "截止{{=Time}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "你的数据日报\r\n访问：{{=Read}}\r\n拉新：{{=PullNew}}\r\n意向：{{=Intention}}\r\n咨询：{{=Consult}}\r\n成交：{{=Deal}}\r\n你当前等级为【{{=CurHonor}}】\r\n距下一等级{{=NextHonor}}还差【{{=DiffScore}}】积分",
+        "Color": "#000000"
+      }
+    ]
+  },
+  "每周报表提醒": {
+    "DevValuesKey": "SchoolName,Time,Read,PullNew,Intention,Deal",
+    "DevValuesDescribe": "店铺名称,时间,阅读,拉新,意向,成交",
+    "ShortID": "OPENTM204851741",
+    "TopColor": "#000000",
+    "FirstData": "来自【{{=SchoolName}}】本周数据报表",
+    "FirstDataColor": "#000000",
+    "RemarkData": "本周表现不错，继续加油哦！",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "{{=Time}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "阅读：{{=Read}}\r\n拉新：{{=PullNew}}\r\n意向：{{=Intention}}\r\n成交：{{=Deal}}",
+        "Color": "#000000"
+      }
+    ]
+  },
+  "每月报表提醒管理员": {
+    "DevValuesKey": "SchoolName,Name,Time,Read,PullNew,OrdersTotal,Intention,Income,Expend",
+    "DevValuesDescribe": "店铺名称,姓名,时间,访问量,拉新,订单总数,意向,收入,支出",
+    "ShortID": "OPENTM204851741",
+    "TopColor": "#000000",
+    "FirstData": "来自【{{=SchoolName}}】{{=Time}}月数据报表",
+    "FirstDataColor": "#000000",
+    "RemarkData": "{{=Time}}",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "{{=Time}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "新增客户：{{=PullNew}}人\r\n订单总数：{{=OrdersTotal}}\r\n本月收入：{{=Income}}\r\n本月支出：{{=Expend}}",
+        "Color": "#000000"
+      }
+    ]
+  },
+  "访客接待提醒": {
+    "DevValuesKey": "SchoolName,Name,NickName,Time,ChatInfo,DialogCount",
+    "DevValuesDescribe": "店铺名称,姓名,昵称,时间,聊天内容",
+    "ShortID": "OPENTM417984821",
+    "TopColor": "#000000",
+    "FirstData": "来自【{{=SchoolName}}】访客接待",
+    "FirstDataColor": "#000000",
+    "RemarkData": "你有{{=DialogCount}}个访客待接待,点击进入聊一聊。",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "{{=Name}}(昵称：{{=NickName}})",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=Phone}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=ChatInfo}}\r\n{{=Time}}",
+        "Color": "#000000"
+      }
+    ]
+  },
+  //"素材更新通知客户": {
+  //  "DevValuesKey": "SchoolName,Title,Time,Type",
+  //  "DevValuesDescribe": "店铺名称,标题,更新时间,更新类型",
+  //  "ShortID": "OPENTM401927615",
+  //  "TopColor": "#000000",
+  //  "FirstData": "【{{=SchoolName}}】文章发布已更新，赶快阅读吧！",
+  //  "FirstDataColor": "#2281f8",
+  //  "RemarkData": "点击查看文章\r\n",
+  //  "RemarkDataColor": "#000000",
+  //  "KeyWords": [
+  //    {
+  //      "Text": "【{{=Type}}】",
+  //      "Color": "#000000"
+  //    },
+  //    {
+  //      "Text": "{{=Title}}",
+  //      "Color": "#000000"
+  //    },
+  //    {
+  //      "Text": "{{=Time}}",
+  //      "Color": "#000000"
+  //    }
+  //  ]
+  //},
+  "素材更新通知": {
+    "DevValuesKey": "SchoolName,Title,Time,Type",
+    "DevValuesDescribe": "店铺名称,标题,更新时间,更新类型",
+    "ShortID": "OPENTM405883670",
+    "TopColor": "#000000",
+    "FirstData": "来自【{{=SchoolName}}】新素材已更新",
+    "FirstDataColor": "#000",
+    "RemarkData": "新的素材更新了\r\n点击去分享吧！",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "【{{=Title}}】",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=Type}}",
+        "Color": "#000000"
+      }
+
+    ]
+  },
+  "校长修改提醒": {
+    "DevValuesKey": "SchoolName,NickName,Account",
+    "DevValuesDescribe": "店铺名称,昵称,账户",
+    "ShortID": "OPENTM217363134",
+    "TopColor": "#000000",
+    "FirstData": "来自：【{{=SchoolName}}】修改管理员",
+    "FirstDataColor": "#000000",
+    "RemarkData": "你好{{=NickName}}",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "{{=Account}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "你将申请成为{{=SchoolName}}的新的管理员\r\n点击继续操作",
+        "Color": "#000000"
+      }
+    ]
+  },
+  "原校长待确定提醒": {
+    "DevValuesKey": "SchoolName,Name,Account,ApplyerName",
+    "DevValuesDescribe": "店铺名称,现校长,账户,申请人",
+    "ShortID": "OPENTM217363134",
+    "TopColor": "#000000",
+    "FirstData": "来自：【{{=SchoolName}}】修改管理员",
+    "FirstDataColor": "#000000",
+    "RemarkData": "你好{{=Name}}",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "{{=Account}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=ApplyerName}}将申请成为{{=SchoolName}}的新的管理员,您需要确定以此完成新管理员的交接\r\n点击继续操作",
+        "Color": "#000000"
+      }
+    ]
+  },
+  "原校长解绑成功提醒": {
+    "DevValuesKey": "SchoolName,Name,Account",
+    "DevValuesDescribe": "店铺名称,姓名,账户",
+    "ShortID": "OPENTM217363134",
+    "TopColor": "#000000",
+    "FirstData": "来自：【{{=SchoolName}}】修改管理员",
+    "FirstDataColor": "#000000",
+    "RemarkData": "你好{{=Name}}",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "{{=Account}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "您已解绑{{=SchoolName}}的的管理员",
+        "Color": "#000000"
+      }
+    ]
+  },
+  "新校长被拒绝提醒": {
+    "DevValuesKey": "SchoolName,Name,Reason",
+    "DevValuesDescribe": "店铺名称,姓名,账户",
+    "ShortID": "OPENTM217363134",
+    "TopColor": "#000000",
+    "FirstData": "来自：【{{=SchoolName}}】修改管理员",
+    "FirstDataColor": "#000000",
+    "RemarkData": "拒绝理由:{{=Reason}}",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "{{=Name}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "管理员已拒绝您的{{=SchoolName}}的申请",
+        "Color": "#000000"
+      }
+    ]
+  },
+  "活动发布合伙人通知": {
+    "DevValuesKey": "SchoolName,Name,ActivityName,Period,Radius,CenterAddress,Award",
+    "DevValuesDescribe": "店铺名称,合伙人姓名,活动名称,活动有效期,半径,中心,奖品", //通知已发放佣金的合伙人
+    "ShortID": "OPENTM401887529",
+    "TopColor": "#000000",
+    "FirstData": "来自【{{=SchoolName}}】推广活动",
+    "FirstDataColor": "#000000",
+    "RemarkData": "您好{{=Name}},{{=SchoolName}}发布了《{{=ActivityName}}》的新活动待你分享推广",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "《{{=ActivityName}}》",
+        "Color": "#000000"
+      },
+      {
+        "Text": "奖励:{{=Award}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "推广活动",
+        "Color": "#000000"
+      },
+      {
+        "Text": "活动奖励规则:(点击查看更多...)",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=Period}}",
+        "Color": "#000000"
+      }
+    ]
+  },
+  "活动发布客户通知": {
+    "DevValuesKey": "SchoolName,Name,ActivityName,Period,Radius,CenterAddress,Award",
+    "DevValuesDescribe": "店铺名称,合伙人姓名,活动名称,活动有效期,半径,中心,奖品", //通知已发放佣金的合伙人
+    "ShortID": "OPENTM401887529",
+    "TopColor": "#000000",
+    "FirstData": "来自【{{=SchoolName}}】推广活动",
+    "FirstDataColor": "#000000",
+    "RemarkData": "您好{{=Name}},{{=SchoolName}}发布了《{{=ActivityName}}》的新活动，赶快来参加吧",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "《{{=ActivityName}}》",
+        "Color": "#000000"
+      },
+      {
+        "Text": "奖励:{{=Award}}",
+        "Color": "#000000"
+      },
+      {
+        "Text": "推广活动",
+        "Color": "#000000"
+      },
+      {
+        "Text": "更多好礼活动信息 (点击查看更多)",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=Period}}",
+        "Color": "#000000"
+      }
+    ]
+  },
+  "激励进度提醒": {
+    "DevValuesKey": "SchoolName,Name,PromoteType,Time,TargetName,Award",
+    "DevValuesDescribe": "店铺名称,用户姓名,推广类型,时间,目标用户,奖励", //通知激励每完成一次提醒一次
+    "ShortID": "OPENTM207994500", //OPENTM401887529backup
+    "TopColor": "#000000",
+    "FirstData": "来自【{{=SchoolName}}】",
+    "FirstDataColor": "#000000",
+    "RemarkData": "您好{{=Name}}离奖励{{=Award}}触手可及，继续分享吧~",
+    "RemarkDataColor": "#000000",
+    "KeyWords": [
+      {
+        "Text": "你已成功推荐1个新用户{{=TargetName}}{{=PromoteType}}\r\n",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=Time}}",
+        "Color": "#000000"
+      }
+    ]
+  },
+  "激励完成提醒": {
+    "DevValuesKey": "SchoolName,Name,PromoteType,Time,TargetName,Award",
+    "DevValuesDescribe": "店铺名称,用户姓名,推广类型,时间,目标用户", //通知激励每完成一次提醒一次
+    "ShortID": "OPENTM207994500",
+    "TopColor": "#000000",
+    "FirstData": "来自【{{=SchoolName}}】",
+    "FirstDataColor": "#000000",
+    "RemarkData": "您好{{=Name}},恭喜您完成了【{{=TargetName}}】激励\r\n奖励已通过零钱发放到微信账户",
+    "RemarkDataColor": "#e20000",
+    "KeyWords": [
+      {
+        "Text": "{{=TargetName}}通过你的分享参与活动",
+        "Color": "#000000"
+      },
+      {
+        "Text": "{{=Time}}",
+        "Color": "#000000"
+      }
+    ]
+  }
+}
