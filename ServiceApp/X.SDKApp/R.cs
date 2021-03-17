@@ -14,7 +14,8 @@ namespace X.SDKApp
 
         public const string NotFount = "无法找到文件:";
 
-        
-      
+        public const string Token = "Token";
+
+        public const string Verify = "Verify";
     }
 }

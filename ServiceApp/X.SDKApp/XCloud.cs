@@ -19,14 +19,31 @@ namespace X.SDKApp
         {
             get { return appService; }
         }
-        public XCloud(ISerializeable ISerial)
+        internal XCloud(ISerializeable ISerial)
         {
             this.ISerial = ISerial;
-            DicServices = new Dictionary<string, XService>();
+            DicServices = new Dictionary<string, XService>();            
         }
-        void Init()
+        internal void Init(string configpath)
         {
-
+            string xmlString = System.IO.File.ReadAllText(configpath, System.Text.Encoding.UTF8);
+            XmlReader xmlReader = new XmlReader();
+            CloudConfig config = xmlReader.Deserialize<CloudConfig>(xmlString);
+            Init(config);
+        }
+        void Init(CloudConfig config)
+        {
+            appService = new XService(config.authcenter); //app授权中心
+            appService.RefreshHttp(new XHttpClient(config.authcenter.Origin));//创建连接
+            if (config.Dependencies != null) {
+                TokenProvider tokenProvider = new TokenProvider(appService); //Token刷新器
+                foreach (ServiceInfo serviceInfo in config.Dependencies) {
+                    XService xService = new XService(serviceInfo) {
+                        TokenProvider = tokenProvider
+                    };
+                    DicServices[serviceInfo.Name] = xService;
+                }
+            }
         }
         public XService GetXService(string AppID)
         {

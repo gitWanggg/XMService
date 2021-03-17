@@ -10,7 +10,12 @@ namespace X.SDKApp
         const string jsonHeader = "application/json, text/javascript, */*; q=0.01";
         public ApiInfo ApiInfo { get; set; }
 
+        internal XHttpClient XHttpClient { get; set; }
 
+        internal XApi(ApiInfo apiInfo)
+        {
+            this.ApiInfo = ApiInfo;            
+        }
 
         public string Get()
         {
