@@ -10,24 +10,21 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            
+            test1();
             Console.ReadLine();
 
         }
         static void test1()
         {
-            string a = "a";
-            string b = "b";
-            string c = "c";
-            string d = "d";
-            string route1 = "/a/b?a={a}&b={b}&c={c}";
-            string route2 = "/appid/{a}/{b}/{c}";
+            System.Net.WebClient client = new System.Net.WebClient();
+            string url = "http://localhost:2431/api/home/Upload";
+            string file = "F:\\temp\\111.jpg";
+            byte[] buffer = client.UploadFile(url, file);
 
-            Dictionary<string, string> QueryString = new Dictionary<string, string>();
-            QueryString[a] = "A";
-            QueryString[c] = "&?.~!@#$%^&*{}[](<>\\//)_+=";
-            QueryString[b] = "张三";
-            QueryString[d] = "{a}";
+            string r = System.Text.Encoding.UTF8.GetString(buffer);
+
+            Console.WriteLine(r);
+            Console.ReadLine();
 
         }
         static string Format(string route,Dictionary<string,string> querstring)

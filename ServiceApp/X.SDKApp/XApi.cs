@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 using X.StdNorm;
 namespace X.SDKApp
 {
@@ -19,17 +20,32 @@ namespace X.SDKApp
 
         public string Get()
         {
-            return null;
+            return Get(ApiInfo.Route);
         }
         public string  Get(Dictionary<string, string> QueryString)
         {
-            return null;
+            string route2 = Format(ApiInfo.Route, QueryString);
+            return Get(route2);
         }
         public string Get(string Url)
         {
             return null;
         }
+        static string Format(string TmplString, Dictionary<string, string> DevValues)
+        {
+            if (string.IsNullOrEmpty(TmplString))
+                return "";
+            TmplString = TmplString.Replace("\\n", "\n");
+            MatchCollection Matchs = Regex.Matches(TmplString, @"\{\{\s*=([\s\S]+?)\}\}", RegexOptions.IgnoreCase);
+            foreach (Match item in Matchs) {
+                string key = item.Groups[1].Value.Trim().Trim('\t').Trim(' ');
+                string repString = item.Groups[0].Value;
+                if (DevValues != null && DevValues.ContainsKey(key))
+                    TmplString = TmplString.Replace(repString, DevValues[key]);
 
+            }
+            return TmplString;
+        }
         public string Post(string Data)
         {
             return null;
@@ -45,6 +61,7 @@ namespace X.SDKApp
 
         public string  BuilderURL(Dictionary<string, string> QueryString)
         {
+            string route2 = Format(ApiInfo.Route, QueryString);
             return null;
         }
     }
