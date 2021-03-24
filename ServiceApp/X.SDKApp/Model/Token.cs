@@ -26,7 +26,7 @@ namespace X.SDKApp
                 return token;
             }
             catch {
-                return null;
+                throw new X.StdNorm.CustomException("Token Cast Error:"+SecAndTime);
             }
         }
         

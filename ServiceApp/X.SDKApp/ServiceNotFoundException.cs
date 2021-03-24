@@ -4,7 +4,7 @@ using System.Text;
 
 namespace X.SDKApp
 {
-    public class ServiceNotFoundException : Exception
+    public class ServiceNotFoundException : X.StdNorm.CustomException
     {
         public ServiceNotFoundException() : base() { }
         public ServiceNotFoundException(string Message) : base(Message) { }

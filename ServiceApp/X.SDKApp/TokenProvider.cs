@@ -31,7 +31,8 @@ namespace X.SDKApp
 
         public Token Refresh(string AppID)
         {
-            throw new NotImplementedException();
+            string stoken = AppAuthService[R.Token].Get();            
+            return dicTokens[AppID] = Token.CastToken(stoken);
         }
     }
 }
