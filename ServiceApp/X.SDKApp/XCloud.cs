@@ -34,7 +34,7 @@ namespace X.SDKApp
         void Init(CloudConfig config)
         {
             appService = new XService(config.authcenter); //app授权中心
-            appService.RefreshHttp(new XHttpClient(config.authcenter.Origin));//创建连接
+            appService.RefreshHttp(new XHttpClient(config.authcenter.AppID,config.authcenter.Origin));//创建连接
             if (config.Dependencies != null) {
                 TokenProvider tokenProvider = new TokenProvider(appService); //Token刷新器
                 foreach (ServiceInfo serviceInfo in config.Dependencies) {
@@ -48,6 +48,14 @@ namespace X.SDKApp
         public XService GetXService(string AppID)
         {
             return DicServices.ContainsKey(AppID) ? DicServices[AppID] : null;
+        }
+        public XService this[string AppID] {
+            get {
+                var x = GetXService(AppID);
+                if (x == null)
+                    throw new ServiceNotFoundException("not found service "+AppID);
+                return x;
+            }
         }
     }
 }

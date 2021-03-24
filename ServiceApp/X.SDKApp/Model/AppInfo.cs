@@ -9,7 +9,7 @@ namespace X.SDKApp
     public class AppInfo
     {
         [XmlAttribute("id")]
-        public int AppID { get; set; }
+        public string AppID { get; set; }
         [XmlElement("name")]
         public string Name { get; set; }
         [XmlElement("origin")]

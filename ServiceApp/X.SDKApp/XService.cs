@@ -39,7 +39,7 @@ namespace X.SDKApp
                 if (XHttp == null) {
                     lock (objlock) {
                         if (XHttp == null) {
-                           var xClient = new XSDKHttpClient(ServiceInfo.Origin, ServiceInfo.Authorize, this.TokenProvider);
+                           var xClient = new XSDKHttpClient(ServiceInfo.AppID,ServiceInfo.Origin, ServiceInfo.Authorize, this.TokenProvider);
                            RefreshHttp(xClient);
                         }
                     }
@@ -47,6 +47,16 @@ namespace X.SDKApp
                 return dicXApis[ApiName];
             }
             return null;
+        }
+
+        public XApi this[string apiName]
+        {
+            get {
+                var x = GetApi(apiName);
+                if (x == null)
+                    throw new ServiceNotFoundException("not found api " + apiName);
+                return x;
+            }
         }
     }
 }

@@ -11,10 +11,10 @@ namespace X.SDKApp
         const string jsoncontent = "application/json";
         public string Host { get; set; }
         HttpClient client;
-
-        public XHttpClient(string host)
+        public string AppID { get; set; }
+        public XHttpClient(string AppID,string host)
         {
-
+            this.AppID = AppID;
             client = new HttpClient();
             client.BaseAddress = new Uri(host);
         }

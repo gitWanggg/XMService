@@ -21,13 +21,18 @@ namespace X.SDKApp.Tool
         {
             Url += Url.Contains("?") ? R.XTSEqual2 : R.XTSEqual1;
             Url += R.StampNow;
-            //Url.Substring()
-            return null;
+            string source = Url.Substring(Url.IndexOf('?')+1);
+            Url+=R.XSignEqual2 + Encoding(source, Secret);
+            return Url;
         }
 
         public string SignUrl(string Url, string PostData, string Secret)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(PostData))
+                return SignUrl(Url, Secret);
+            Url += Url.Contains("?") ? R.XDataEqual2 : R.XDataEqual1;
+            Url += converter.ToMD5(PostData);
+            return SignUrl(Url, Secret);
         }
     }
 }

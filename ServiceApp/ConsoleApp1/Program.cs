@@ -16,14 +16,8 @@ namespace ConsoleApp1
         }
         static void test1()
         {
-            System.Net.WebClient client = new System.Net.WebClient();
-            string url = "http://localhost:2431/api/home/Upload";
-            string file = "F:\\temp\\111.jpg";
-            byte[] buffer = client.UploadFile(url, file);
-
-            string r = System.Text.Encoding.UTF8.GetString(buffer);
-
-            Console.WriteLine(r);
+            string aa = "jlsfjsl?oosfsjd";
+            Console.WriteLine(aa.Substring(aa.IndexOf('?')+1));
             Console.ReadLine();
 
         }

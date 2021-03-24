@@ -20,10 +20,14 @@ namespace X.SDKApp
 
         public const string XSign = "x_sign";
         public const string XSignEqual = "x_sign=";
+        public const string XSignEqual2 = "&x_sign=";
         public const string Key = "key=";
         public const string XTSEqual1 = "?x_ts=";
         public const string XTSEqual2 = "&x_ts=";
-
+        public const string XData = "x_data";
+        public const string XDataEqual = "x_data=";
+        public const string XDataEqual1 = "?x_data=";
+        public const string XDataEqual2 = "&x_data=";
         public readonly static DateTime dt1970 = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
 
         public static long StampNow

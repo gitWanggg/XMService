@@ -14,8 +14,8 @@ namespace X.SDKApp
         /// </summary>
         public string Authorize { get; set; }
        
-        public XSDKHttpClient(string host,string Authorize,TokenProvider provider)
-            :base(host)
+        public XSDKHttpClient(string AppID,string host,string Authorize,TokenProvider provider)
+            :base(AppID,host)
         {
             this.Authorize = Authorize;
             this.TokenProvider = provider;
@@ -25,7 +25,11 @@ namespace X.SDKApp
 
         protected override string SignUrl(string url, string jsonData)
         {
-            throw new NotImplementedException();
+            if (Authorize == R.MD5) {
+                var xsign = IXSignBuilder.Builder();
+                xsign.SignUrl(url, jsonData, TokenProvider[this.AppID].Secret);
+            }
+            return base.SignUrl(url, jsonData);
         }
 
 
