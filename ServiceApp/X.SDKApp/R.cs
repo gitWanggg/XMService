@@ -30,6 +30,9 @@ namespace X.SDKApp
         public const string XDataEqual2 = "&x_data=";
         public readonly static DateTime dt1970 = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
 
+
+        public const string appidbuilder = "10002";
+        public const string apiidcreate2 = "idcreate2";
         public static long StampNow
         {
             get {

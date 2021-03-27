@@ -10,7 +10,17 @@ namespace X.SDKApp
 
         Dictionary<string, XService> DicServices;
 
+        internal ApiExpress apiExpress;
 
+        public AppInfo CurrentApp { get; set; }
+        public static ApiExpress ApiExpress
+        {
+            get { return Cloud.apiExpress; }
+        }
+        public static AppInfo Current
+        {
+            get { return Cloud.CurrentApp; }
+        }
         XService appService;
         /// <summary>
         /// App注册中心服务
@@ -26,6 +36,7 @@ namespace X.SDKApp
             string currentPath = System.AppDomain.CurrentDomain.BaseDirectory;
             string configpath = currentPath + R.ConfigPath;
             Init(configpath);
+            apiExpress = new ApiExpress();
         }
         
         internal void Init(string configpath)
@@ -37,6 +48,7 @@ namespace X.SDKApp
         }
         void Init(CloudConfig config)
         {
+            this.CurrentApp = config.App;
             appService = new XService(config.Authcenter); //app授权中心
             appService.RefreshHttp(new XHttpClient(config.Authcenter.AppID,config.Authcenter.Origin));//创建连接
             if (config.Dependencies != null) {

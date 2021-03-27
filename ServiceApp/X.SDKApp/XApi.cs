@@ -53,12 +53,12 @@ namespace X.SDKApp
             if (string.IsNullOrEmpty(TmplString))
                 return "";
             TmplString = TmplString.Replace("\\n", "\n");
-            MatchCollection Matchs = Regex.Matches(TmplString, @"\{\{\s*=([\s\S]+?)\}\}", RegexOptions.IgnoreCase);
+            MatchCollection Matchs = Regex.Matches(TmplString, @"\{\s*([\s\S]+?)\}", RegexOptions.IgnoreCase);
             foreach (Match item in Matchs) {
                 string key = item.Groups[1].Value.Trim().Trim('\t').Trim(' ');
                 string repString = item.Groups[0].Value;
                 if (DevValues != null && DevValues.ContainsKey(key))
-                    TmplString = TmplString.Replace(repString, DevValues[key]);
+                    TmplString = TmplString.Replace(repString, System.Web.HttpUtility.UrlEncode(DevValues[key]));
 
             }
             return TmplString;
