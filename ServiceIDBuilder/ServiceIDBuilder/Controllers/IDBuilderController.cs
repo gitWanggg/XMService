@@ -32,6 +32,11 @@ namespace ServiceIDBuilder.Controllers
             return apiID.Hard(appid, name, format);
 
         }
+        [Route("create")]
+        public ActionResult<string> Create(string appid, string name, string format)
+        {
+            return apiID.Hard(appid, name, format);
+        }
         [Route("m/{appid}/{name}/{format}")]
         
         public ActionResult<string> Memory(string appid,  string name, string format)
