@@ -14,8 +14,8 @@ namespace X.SDKApp
         internal XHttpClient XHttpClient { get; set; }
 
         internal XApi(ApiInfo apiInfo)
-        {
-            this.ApiInfo = ApiInfo;            
+        {           
+            this.ApiInfo = apiInfo;            
         }
 
         public string Get()

@@ -8,4 +8,10 @@
     <PackageReference Include="X.StdNorm" Version="1.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="config\cloud.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

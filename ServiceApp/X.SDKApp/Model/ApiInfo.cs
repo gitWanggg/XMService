@@ -7,7 +7,7 @@ namespace X.SDKApp
 {
     public class ApiInfo
     {
-        [XmlElement("name")]
+        [XmlAttribute("name")]
         public string Name { get; set; }
         [XmlText]
         public string Route { get; set; }

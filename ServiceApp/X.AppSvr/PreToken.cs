@@ -5,7 +5,7 @@ using X.SDKApp;
 
 namespace X.AppSvr
 {
-    class PreToken: Token
+   public class PreToken: Token
     {
         public int ID { get; set; }
        

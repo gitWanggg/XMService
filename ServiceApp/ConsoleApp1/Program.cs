@@ -3,33 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using X.SDKApp;
 namespace ConsoleApp1
 {
     class Program
     {
         static void Main(string[] args)
         {
-            test1();
+            int a = 3;
+            int b = a + 4;
+            Console.WriteLine(b);
+            JsonSer jsonSer = new JsonSer();
+            XCloud.CreateXCloud(jsonSer);
+
+            var service = XCloud.GetXService("10002");
+            var api = service["接口1"];
+            string r = api.Get();
+            Console.WriteLine(r);
+
             Console.ReadLine();
 
         }
-        static void test1()
-        {
-            string aa = "jlsfjsl?oosfsjd";
-            Console.WriteLine(aa.Substring(aa.IndexOf('?')+1));
-            Console.ReadLine();
-
-        }
-        static string Format(string route,Dictionary<string,string> querstring)
-        {
-            if (string.IsNullOrEmpty(route) || querstring == null || querstring.Keys.Count < 1)
-                return route;
-
-            foreach(string key in querstring.Keys) {
-                
-            }
-            return null;
-        }
+       
+       
     }
 }

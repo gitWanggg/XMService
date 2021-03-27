@@ -17,6 +17,6 @@ namespace X.SDKApp
 
 
         [XmlElement("authcenter")]
-        public ServiceInfo authcenter { get; set; }
+        public ServiceInfo Authcenter { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace X.AppSvr
         
         readonly object objlock=new object();
 
-        XMD5Encodeing XMD5Encodeing;
+         XMD5Encodeing XMD5Encodeing;
 
         public XAppHandler()
         {
