@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using X.StdNorm;
 namespace X.SDKApp
 {
@@ -20,16 +21,32 @@ namespace X.SDKApp
 
         public string Get()
         {
-            return Get(ApiInfo.Route);
+           return GetAsync().Result;
+
         }
-        public string  Get(Dictionary<string, string> QueryString)
+        public async Task<string> GetAsync()
+        {
+            return await GetAsync(ApiInfo.Route);
+        }
+
+        public string Get(Dictionary<string,string> QueryString)
+        {
+            return GetAsync(QueryString).Result;
+        }
+        public async Task<string> GetAsync(Dictionary<string, string> QueryString)
         {
             string route2 = Format(ApiInfo.Route, QueryString);
-            return Get(route2);
+            return await GetAsync(route2);
         }
+
         public string Get(string Url)
         {
-            return null;
+            return GetAsync(Url).Result;
+        }
+        public async Task<string> GetAsync(string Url)
+        {
+            byte[] array = await XHttpClient.HttpGetAsync(Url,null);
+            return Encoding.UTF8.GetString(array);
         }
         static string Format(string TmplString, Dictionary<string, string> DevValues)
         {

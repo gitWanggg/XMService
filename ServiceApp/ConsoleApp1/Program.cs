@@ -14,12 +14,12 @@ namespace ConsoleApp1
             int b = a + 4;
             Console.WriteLine(b);
             JsonSer jsonSer = new JsonSer();
-            XCloud.CreateXCloud(jsonSer);
+            //XCloud.CreateXCloud(jsonSer);
 
-            var service = XCloud.GetXService("10002");
-            var api = service["接口1"];
-            string r = api.Get();
-            Console.WriteLine(r);
+            //var service = XCloud.GetXService("10002");
+            //var api = service["接口1"];
+            //string r = api.Get();
+            //Console.WriteLine(r);
 
             Console.ReadLine();
 
