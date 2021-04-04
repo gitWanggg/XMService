@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using X.SDKApp;
@@ -11,11 +12,21 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            string a = "x_ts";
+            string url = "http://www.ss.com/ss/ff?a=2&c=3&j=2&x_ts=3joosjfsAA";
+            //string regx = "(^|&)" + a + "=([^&]*)(&|$)";
+            string regx2 = "(^|&)x_ts=([^&]*)(&|$)";
+            var match = Regex.Match(url, regx2, RegexOptions.IgnoreCase);
+            if (match != null && match.Length > 2)
+                Console.WriteLine(match.Groups[2].Value);
+            else
+                Console.WriteLine("null");
+          
+            Console.ReadLine();
 
-
-            //int a = 3;
-            //int b = a + 4;
-            //Console.WriteLine(b);
+        }
+       static void TestIDBuilder()
+        {
             JsonSer jsonSer = new JsonSer();
             XCloud.CreateXCloud(jsonSer);
 
@@ -28,10 +39,7 @@ namespace ConsoleApp1
             string r = api.Get(dicAA);
             Console.WriteLine(r);
 
-            Console.ReadLine();
-
         }
-       
         static void exe1()
         {
             for (int i = 0; i < 2000; i++) {

@@ -28,6 +28,10 @@ namespace X.SDKApp
         public const string XDataEqual = "x_data=";
         public const string XDataEqual1 = "?x_data=";
         public const string XDataEqual2 = "&x_data=";
+
+        public const string XRegexPatternTS= "(^|&)x_ts=([^&]*)(&|$)";
+        public const string XRegexPatternSign = "(^|&)x_sign=([^&]*)(&|$)";
+        public const string XRegexPatternData = "(^|&)x_data=([^&]*)(&|$)";
         public readonly static DateTime dt1970 = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
 
 
