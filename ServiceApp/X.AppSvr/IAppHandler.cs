@@ -9,5 +9,7 @@ namespace X.AppSvr
         Token Find(int AppID);
 
         bool Verify(int AppID,  string Source, string Sign);
+
+        
     }
 }

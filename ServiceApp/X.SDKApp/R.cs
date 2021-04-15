@@ -19,16 +19,15 @@ namespace X.SDKApp
         public const string Verify = "Verify";
 
         public const string XSign = "x_sign";
-        public const string XSignEqual = "x_sign=";
+       // public const string XSignEqual = "x_sign=";
         public const string XSignEqual2 = "&x_sign=";
         public const string Key = "key=";
-        public const string XTSEqual1 = "?x_ts=";
-        public const string XTSEqual2 = "&x_ts=";
-        public const string XData = "x_data";
-        public const string XDataEqual = "x_data=";
-        public const string XDataEqual1 = "?x_data=";
+        // public const string XTSEqual1 = "?x_ts=";
+        public const string XTS = "x_ts";      
+        public const string XData = "x_data";       
         public const string XDataEqual2 = "&x_data=";
-
+        public const string XAppID = "x_appid";
+       
         public const string XRegexPatternTS= "(^|&)x_ts=([^&]*)(&|$)";
         public const string XRegexPatternSign = "(^|&)x_sign=([^&]*)(&|$)";
         public const string XRegexPatternData = "(^|&)x_data=([^&]*)(&|$)";

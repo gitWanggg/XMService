@@ -26,7 +26,8 @@ namespace X.SDKApp
         protected override string SignUrl(string url, string jsonData)
         {
             if (Authorize == R.MD5) {
-                var xsign = IXSignBuilder.Builder();
+                //var xsign = IXSignBuilder.Builder();
+                IXSign xsign = new XSignMD5(XCloud.Current.AppID);
                 xsign.SignUrl(url, jsonData, TokenProvider[this.AppID].Secret);
             }
             return base.SignUrl(url, jsonData);
