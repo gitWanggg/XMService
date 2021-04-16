@@ -28,9 +28,11 @@ namespace X.SDKApp
         public const string XDataEqual2 = "&x_data=";
         public const string XAppID = "x_appid";
        
-        public const string XRegexPatternTS= "(^|&)x_ts=([^&]*)(&|$)";
+     
         public const string XRegexPatternSign = "(^|&)x_sign=([^&]*)(&|$)";
         public const string XRegexPatternData = "(^|&)x_data=([^&]*)(&|$)";
+        public const string XRegexPatternTs = "(^|&)x_ts=([^&]*)(&|$)";
+        public const string XRegexPatternAppID = "(^|&)x_appid=([^&]*)(&|$)";
         public readonly static DateTime dt1970 = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
 
 

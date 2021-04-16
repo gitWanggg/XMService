@@ -20,13 +20,8 @@ namespace X.SDKApp
             return api.Get(url);
         }
 
-        public bool AuthSign(string Url)
-        {
-            return false;
-        }
-        public bool AuthSign(string Url,string PostData)
-        {
-            return false;
-        }
+       
+       
+       
     }
 }

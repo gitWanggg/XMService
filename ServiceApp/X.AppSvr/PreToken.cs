@@ -5,11 +5,15 @@ using X.SDKApp;
 
 namespace X.AppSvr
 {
-   public class PreToken: Token
+   public class PreToken: Token, ISecretInfo
     {
         public int ID { get; set; }
        
-        public string SecretPre { get; set; }      
-       
+        public string SecretPre { get; set; }
+
+
+        public string SecretCurrent => this.Secret;
+
+        public string SecretPrevious => this.SecretPre;
     }
 }

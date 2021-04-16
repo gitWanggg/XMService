@@ -23,5 +23,11 @@ namespace X.SDKApp
             }
             return signMD5.ToString().ToUpper();
         }
+
+        public string Encoding(string SourceStr, string Secret)
+        {
+            string str2 = SourceStr + R.Key + Secret;
+            return ToMD5(str2);
+        }
     }
 }
