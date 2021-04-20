@@ -65,17 +65,29 @@ namespace X.SDKApp
         }
         public string Post(string Data)
         {
-            return null;
+            byte[] array = XHttpClient.HttpPostAsync(ApiInfo.Route, Data).Result;
+            return array==null||array.Length<1?null: Encoding.UTF8.GetString(array);
         }
         public T Post<T>(object Data)
         {
-            return default(T);
+            string jdata = Data.ToString();
+            string pstr = Post(jdata);
+            if (string.IsNullOrEmpty(pstr))
+                return default(T);
+            if (XCloud.Cloud.ISerial == null)
+                throw new X.StdNorm.CustomException("XCloud Iserial Is Null");
+            return XCloud.Cloud.ISerial.DeserializeObject<T>(pstr);
         }
         public byte[] HttpPost(byte[] Data)
         {
-            return null;
+            byte[] array = XHttpClient.HttpPostAsync(ApiInfo.Route, Data).Result;
+            return array;
         }
-
+        public async Task<byte[]> HttpPostAsync(byte[] Data)
+        {
+            byte[] array = await XHttpClient.HttpPostAsync(ApiInfo.Route, Data);
+            return array;
+        }
         public string  BuilderURL(Dictionary<string, string> QueryString)
         {
             string route2 = Format(ApiInfo.Route, QueryString);

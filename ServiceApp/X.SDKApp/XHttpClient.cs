@@ -25,14 +25,21 @@ namespace X.SDKApp
             var hM = await HttpExe(url, Accept, HttpMethod.Get, null);
             return await hM.Content.ReadAsByteArrayAsync();
         }
-        public async Task<byte[]> HttpPostAsync(string url, string Accept, string jsonData)
+        public async Task<byte[]> HttpPostAsync(string url, string jsonData)
         {
             string URL = SignUrl(url, jsonData);
             HttpContent hc = new StringContent(jsonData, Encoding.UTF8, jsoncontent);
             var hM = await HttpExe(url, "", HttpMethod.Post, hc);
             return await hM.Content.ReadAsByteArrayAsync();
         }
-
+        public async Task<byte[]> HttpPostAsync(string url, byte[] byteData)
+        {
+            HttpContent hc = new ByteArrayContent(byteData);
+         //   string URL = SignUrl(url, jsonData);
+           // HttpContent hc = new StringContent(jsonData, Encoding.UTF8, jsoncontent);
+            var hM = await HttpExe(url, "", HttpMethod.Post, hc);
+            return await hM.Content.ReadAsByteArrayAsync();
+        }
         public async Task<HttpResponseMessage> HttpExe(string url, string Accept,
             HttpMethod httpMethod, HttpContent Content)
         {

@@ -21,7 +21,14 @@ namespace X.SDKApp
         }
 
        
-       
+        public bool Auth(string Url)
+        {
+           var api = XCloud.Cloud.AppAuthcenter.GetApi(R.Verify);
+            var obj = new Dictionary<string, string>();
+            obj.Add(R.Verify, Url);
+            bool isOk = api.Post<bool>(obj);
+            return false;
+        }
        
     }
 }

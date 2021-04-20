@@ -38,6 +38,8 @@ namespace X.SDKApp
 
         public const string appidbuilder = "10002";
         public const string apiidcreate2 = "idcreate2";
+
+        public const string apiVerifyParam = "Url";
         public static long StampNow
         {
             get {

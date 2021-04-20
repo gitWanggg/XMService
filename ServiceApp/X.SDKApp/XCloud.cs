@@ -6,7 +6,7 @@ namespace X.SDKApp
 {
     public class XCloud
     {
-        ISerializeable ISerial;
+        public ISerializeable ISerial { get; set; }
 
         Dictionary<string, XService> DicServices;
 
