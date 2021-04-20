@@ -27,6 +27,7 @@ namespace X.ServiceApp
         {
             Configuration.UseDefaultDBContextOptions();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddSingleton<X.SDKApp.IAuthSign, X.SDKApp.MD5AuthSign>();
             services.AddSingleton<X.AppSvr.IAppHandler, AppSvr.XAppHandler>();
         }
 

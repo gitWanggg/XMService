@@ -4,11 +4,11 @@ using System.Text;
 using X.SDKApp;
 namespace X.AppSvr
 {
-    public interface IAppHandler
+    public interface IAppHandler:IFindSecret
     {
         Token Find(int AppID);
 
-        bool Verify(int AppID,  string Source, string Sign);
+        bool Verify(string Url);
 
         
     }

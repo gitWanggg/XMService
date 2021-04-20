@@ -10,10 +10,12 @@ namespace X.AppSvr
         
         readonly object objlock=new object();
 
-         XMD5Encodeing XMD5Encodeing;
+        XMD5Encodeing XMD5Encodeing;
 
-        public XAppHandler()
+        IAuthSign iAuth;
+        public XAppHandler(IAuthSign authSign)
         {
+            iAuth = authSign;
             dicTokens = new Dictionary<int, PreToken>();
             XMD5Encodeing = new XMD5Encodeing();
         }
@@ -49,11 +51,15 @@ namespace X.AppSvr
                 return token;
             }            
         }
-        public bool Verify(int AppID, string Source, string Sign)
+        public bool Verify(string Url)
         {
-            Token token = Find(AppID);
-            string sign0 = XMD5Encodeing.Encoding(Source, token.Secret);
-            return sign0 == Sign;
+           return iAuth.Auth(Url);
+        }
+
+        public ISecretInfo Find(string AppID)
+        {
+            var token= Find(Convert.ToInt32(AppID));
+            return token as ISecretInfo;
         }
     }
 }
