@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace X.SDKApp.Tool
 {
@@ -29,7 +30,7 @@ namespace X.SDKApp.Tool
         {
             return GetQValu(Url, R.XRegexPatternAppID);
         }
-        static string GetQValu(string Url, string RegStr)
+        public static string GetQValu(string Url, string RegStr)
         {
             var match = Regex.Match(Url, RegStr, RegexOptions.IgnoreCase);
             return match != null && match.Length > 2 ? match.Groups[2].Value : null;

@@ -9,7 +9,7 @@ namespace X.SDKApp
         public string ToMD5(string SourceString)
         {
 
-            return ToMD5(Encoding.UTF8.GetBytes(SourceString));
+            return ToMD5(System.Text.Encoding.UTF8.GetBytes(SourceString));
 
 
         }
