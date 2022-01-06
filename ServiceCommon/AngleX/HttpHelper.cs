@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Net;
 using System.Text;
+using System.Web;
 
 namespace AngleX
 {
@@ -13,6 +14,26 @@ namespace AngleX
             WebClient wc = new WebClient();
             wc.Encoding = Encoding.UTF8;
             return wc.DownloadString(url);
+        }
+        public static string WebclientGet(string url,Dictionary<string,string> pars)
+        {
+            if (pars != null) {
+                url += (url.Contains("?") ? "&" : "?") + BuildParams(pars);
+            }
+            return WebclientGet(url);
+        }
+        protected static string BuildParams(Dictionary<string, string> Params)
+        {
+            StringBuilder builder = new StringBuilder();
+            int i = 0;
+            foreach (var key in Params.Keys) {
+                if (i != 0) {
+                    builder.Append("&");
+                }
+                builder.Append(key).Append("=").Append(HttpUtility.UrlEncode(Params[key]));
+                i++;
+            }
+            return builder.ToString();
         }
         public static byte[] WebclientDownload(string url)
         {
