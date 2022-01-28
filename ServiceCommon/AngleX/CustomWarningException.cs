@@ -21,5 +21,10 @@ namespace AngleX
         {
 
         }
+
+        /// <summary>
+        /// 警告日志阈值,大于等于10将会记录日志
+        /// </summary>
+        public const int VPTLog = 10;
     }
 }
