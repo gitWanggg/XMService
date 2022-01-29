@@ -22,6 +22,12 @@ namespace AngleX
 
         }
 
+        public CustomWarningException(string Msg,int Level)
+            : base(Msg)
+        {
+            this.WraningLevel = Level;
+        }
+
         /// <summary>
         /// 警告日志阈值,大于等于10将会记录日志
         /// </summary>
