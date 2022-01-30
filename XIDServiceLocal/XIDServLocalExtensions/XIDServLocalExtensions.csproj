@@ -6,10 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.22" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\XIDServiceLocal\XIDServiceLocal.csproj" />
+    <PackageReference Include="XIDServiceLocal" Version="1.0.0" />
   </ItemGroup>
 
 </Project>
