@@ -5,7 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\XIDServiceLocalMySql\XIDServiceLocalMySql.csproj" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\XIDServLocalExtensions\XIDServLocalExtensions.csproj" />
+    <ProjectReference Include="..\XIDServLocalMySqlExtensions\XIDServLocalMySqlExtensions.csproj" />
   </ItemGroup>
 
 
