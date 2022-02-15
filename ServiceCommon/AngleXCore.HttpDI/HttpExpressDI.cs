@@ -97,14 +97,27 @@ namespace AngleXCore.HttpDI
         }
         public string PostData(string url, string contenttype, string postadata, Encoding encoding)
         {
+            byte[] br = PostData2(url, contenttype, postadata, encoding);
+            if (br == null)
+                return "";
+            return encoding.GetString(br);
+            //if (postadata == null)
+            //    postadata = "";
+            //HttpContent hc = new StringContent(postadata, encoding, contenttype);
+            //var t = base.HttpExe(url, HttpMethod.Post, hc);
+            //byte[] tR = HandExeR(t);
+            //return Encoding.UTF8.GetString(tR);
+        }
+
+        byte[] PostData2(string url, string contenttype, string postadata, Encoding encoding)
+        {
             if (postadata == null)
-                postadata = "";
+                postadata = null;
             HttpContent hc = new StringContent(postadata, encoding, contenttype);
             var t = base.HttpExe(url, HttpMethod.Post, hc);
             byte[] tR = HandExeR(t);
-            return Encoding.UTF8.GetString(tR);
+            return tR;
         }
-
         public byte[] Upload(string url, Dictionary<string, string> headers, HttpMethod httpMethod, byte[] data)
         {
             HttpContent hc = new ByteArrayContent(data);
@@ -132,6 +145,20 @@ namespace AngleXCore.HttpDI
         {
             HttpClient hc = this._hcFactory.CreateClient();
             return hc;
+        }
+
+        public string PostData2(string url, object JsonObj)
+        {
+            string jData = ISerial.SerializeObject(JsonObj);
+            string data = PostData(url, jData);
+            return data;
+        }
+
+        public byte[] PostDataByte(string url, object JsonObj)
+        {
+            string jData = ISerial.SerializeObject(JsonObj);
+            byte[] br = PostData2(url, jsoncontent, jData, System.Text.Encoding.UTF8);
+            return br;
         }
     }
 }
