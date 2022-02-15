@@ -18,10 +18,14 @@ namespace AngleX
 
         T PostData<T>(string url, object postdata);
         T PostData<T>(string url, Dictionary<string, string> headers, object postdata);
+
+        
         string PostData(string url, string postdata);
         string PostData(string url, string contenttype, string postadata, Encoding encoding);
 
+        string PostData2(string url, object JsonObj);
 
+        byte[] PostDataByte(string url, object JsonObj);
 
         byte[] Upload(string url, Dictionary<string, string> headers, HttpMethod httpMethod, byte[] postdata);
 
