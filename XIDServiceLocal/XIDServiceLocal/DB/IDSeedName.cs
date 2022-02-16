@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace XIDServiceLocal
 {
+    [Table("idseedname")]
     public class IDSeedName
     {
         [Key]
