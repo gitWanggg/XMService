@@ -19,8 +19,12 @@ namespace AngleX
         /// </summary>
         public readonly static int Http200 = 200;
         /// <summary>
-        /// 授权错误
+        /// 授权错误尚未登录授权
         /// </summary>
         public readonly static int Http401 = 401;
+        /// <summary>
+        /// 没有权限访问该内容
+        /// </summary>
+        public readonly static int Http403 = 403;
     }
 }
